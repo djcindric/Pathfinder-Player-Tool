@@ -10,7 +10,10 @@ import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,13 +22,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 @SuppressWarnings("rawtypes")
 public class MainActivity extends Activity  implements NewCharacterDialogFragment.NoticeDialogListener{
 	final ArrayList<String> list = new ArrayList<String>();
-	
-	ArrayAdapter<String> adapter = null;
+	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+	public ArrayAdapter<String> adapter = null;
 	public static int currentapiVersion = android.os.Build.VERSION.SDK_INT;
 	
 	@Override
@@ -52,39 +54,37 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 			@Override
 		    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 		        final String item = (String) parent.getItemAtPosition(position);
-		        Toast t = Toast.makeText(parent.getContext(), item, Toast.LENGTH_SHORT);
-		        t.show();
+		        Intent intent = new Intent(parent.getContext(), MainTabbedActivity.class);
+		        intent.putExtra(EXTRA_MESSAGE, item);
+		        startActivity(intent);
 		    }
 	    });
 	    listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 	    	@SuppressLint("NewApi")
 			@Override
-	    	public boolean onItemLongClick(AdapterView<?> parent, final View view, int position, long arg3){
+	    	public boolean onItemLongClick(final AdapterView<?> parent, final View view, int position, long arg3){
 	    		final String item = (String) parent.getItemAtPosition(position);
-	    		if(MainActivity.currentapiVersion > android.os.Build.VERSION_CODES.JELLY_BEAN){
-	    			view.animate().setDuration(2000).alpha(0).withEndAction(new Runnable() {
-			              @Override
-			              public void run() {
-			            	  list.remove(item);
-			            	  adapter.notifyDataSetChanged();
-			            	  view.setAlpha(1);
-			              }
-			            });
-	    		}
-	    		else{
-	    			 list.remove(item);
-	            	 adapter.notifyDataSetChanged();
-	    		}
-				
-	    		return false; 
+    			
+	    		new AlertDialog.Builder(parent.getContext()).setTitle("Delete entry").setMessage("Are you sure you want to delete this entry?")
+	    			.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	    				public void onClick(DialogInterface dialog, int which) { 
+					    	list.remove(item);
+					    	adapter.notifyDataSetChanged();
+	    				}
+	    				})
+	    			.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+	    				public void onClick(DialogInterface dialog, int which) { 
+	    				}
+	    				}).setIcon(android.R.drawable.ic_dialog_alert).show();         
+	    		return true; 
 	    	}
 		});
 	}
 	
 	@Override
-	public void onDestroy(){
-		super.onDestroy();
+	public void onPause(){
 		saveCharacters();
+		super.onDestroy();
 	}
 
 	@Override

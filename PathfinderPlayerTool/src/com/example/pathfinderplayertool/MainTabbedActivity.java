@@ -1,40 +1,35 @@
 package com.example.pathfinderplayertool;
 
-import android.app.Activity;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
-public class MainTabbedActivity extends Activity {
+public class MainTabbedActivity extends FragmentActivity {
+	
+    MainTabbedPagerAdapter mMainTabbedPagerAdapter;
+    ViewPager mViewPager;
+    public static String message = "";
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_tabbed);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_tabbed);
+        
+        //Receive the string (Character Name) Passed from the calling activity
 		Intent intent = getIntent();
-		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+		message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 		Toast t = Toast.makeText(this, message, Toast.LENGTH_SHORT);
 		t.show();
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main_tabbed, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+		
+		//Change the action bar title
+		ActionBar ab = getActionBar();
+        ab.setTitle(message);
+        ab.setSubtitle("Pathfinder Player Tool");
+        
+		mMainTabbedPagerAdapter = new MainTabbedPagerAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mMainTabbedPagerAdapter);
+    }
 }

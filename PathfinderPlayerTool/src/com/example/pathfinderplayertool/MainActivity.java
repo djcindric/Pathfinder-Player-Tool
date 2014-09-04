@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
@@ -23,7 +24,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-@SuppressWarnings("rawtypes")
 public class MainActivity extends Activity  implements NewCharacterDialogFragment.NoticeDialogListener{
 	final ArrayList<String> list = new ArrayList<String>();
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -35,6 +35,12 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		//Change the action bar title
+		ActionBar ab = getActionBar();
+		ab.setTitle("Characters");
+		ab.setSubtitle("Pathfinder Player Tool");
+		
+		//Open the .txt file containing the character names
 		File saveFile = new File(this.getFilesDir(), "charNames.txt");
     	BufferedReader in  =null;
     	String name="";
@@ -47,9 +53,12 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 			e.printStackTrace();
 		}
 		
+    	//Populate the listview (Declared in activity_main.xml) with names from the .txt file
 		final ListView listview = (ListView) findViewById(R.id.character_list);
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 	    listview.setAdapter(adapter);
+	    
+	    //Set the listview to load the character that is clicked on
 	    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 		    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
@@ -59,6 +68,8 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		        startActivity(intent);
 		    }
 	    });
+	    
+	    //Set the listview to prompt to remove a character on a long click (hold)
 	    listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 	    	@SuppressLint("NewApi")
 			@Override
@@ -70,6 +81,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 	    				public void onClick(DialogInterface dialog, int which) { 
 					    	list.remove(item);
 					    	adapter.notifyDataSetChanged();
+					    	saveCharacters();
 	    				}
 	    				})
 	    			.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -81,10 +93,14 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		});
 	}
 	
+	@Override 
+	public void onDestroy(){
+		super.onDestroy();
+	}
+	
 	@Override
 	public void onPause(){
-		saveCharacters();
-		super.onDestroy();
+		super.onPause();
 	}
 
 	@Override
@@ -114,6 +130,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 	public void newCharacter(String s){
         list.add(s);
         adapter.notifyDataSetChanged();
+        saveCharacters();
 	}
 	
 	public void onDialogPositiveClick(DialogFragment d) {
@@ -126,13 +143,15 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
     public void onDialogNegativeClick(DialogFragment d) {
     }
     
+    
+    //Store characters in a .txt file
     public boolean saveCharacters(){
     	File saveFile = new File(this.getFilesDir(), "charNames.txt");
     	BufferedWriter os=null;
     	saveFile.delete();
     	try {
-    		os = new BufferedWriter(new FileWriter(saveFile, true));
     		saveFile.createNewFile(); //Create the file if it doesn't exist
+    		os = new BufferedWriter(new FileWriter(saveFile, true));
     		for(String s: list){
         		os.append(s);
         		os.newLine();

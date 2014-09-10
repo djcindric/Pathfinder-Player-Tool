@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainTabbedActivity extends FragmentActivity {
@@ -46,8 +47,8 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                Toast t = Toast.makeText(v.getContext(), value, Toast.LENGTH_SHORT);
-            	t.show();
+                TextView tv = (TextView) findViewById(R.id.charName);
+                tv.setText(value);
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -64,8 +65,8 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                Toast t = Toast.makeText(v.getContext(), value, Toast.LENGTH_SHORT);
-            	t.show();
+                TextView tv = (TextView) findViewById(R.id.charLevelValue);
+                tv.setText(value);
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {

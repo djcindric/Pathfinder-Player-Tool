@@ -16,6 +16,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,18 +41,16 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		ab.setTitle("Characters");
 		ab.setSubtitle("Pathfinder Player Tool");
 		
-		//Open the .txt file containing the character names
-		File saveFile = new File(this.getFilesDir(), "charNames.txt");
-    	BufferedReader in  =null;
-    	String name="";
-    	try {
-    		in = new BufferedReader(new FileReader(saveFile));
-    		while((name = in.readLine()) != null){
-    			list.add(name);
-    		}
-    	} catch (IOException e) {
-			e.printStackTrace();
-		}
+		//Open the character directory. Create it if it doesnt already exist
+		File saveFilesDir = new File(this.getFilesDir(), "/chars/");
+		saveFilesDir.mkdir();
+
+		//Get all files in the chars directory
+    	File file[] = saveFilesDir.listFiles();
+    	for (int i=0; i < file.length; i++)
+    	{
+    	    list.add(file[i].getName().substring(0,file[i].getName().length()-4));
+    	}
 		
     	//Populate the listview (Declared in activity_main.xml) with names from the .txt file
 		final ListView listview = (ListView) findViewById(R.id.character_list);
@@ -81,7 +80,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 	    				public void onClick(DialogInterface dialog, int which) { 
 					    	list.remove(item);
 					    	adapter.notifyDataSetChanged();
-					    	saveCharacters();
+					    	removeCharacter(item);
 	    				}
 	    				})
 	    			.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -130,7 +129,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 	public void newCharacter(String s){
         list.add(s);
         adapter.notifyDataSetChanged();
-        saveCharacters();
+        createCharacter(s);
 	}
 	
 	public void onDialogPositiveClick(DialogFragment d) {
@@ -144,20 +143,25 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
     }
     
     
-    //Store characters in a .txt file
-    public boolean saveCharacters(){
-    	File saveFile = new File(this.getFilesDir(), "charNames.txt");
-    	BufferedWriter os=null;
-    	saveFile.delete();
+    public boolean removeCharacter(String s){
+    	File tempChar = new File(this.getFilesDir(), "/chars/" + s + ".txt");
+    	tempChar.delete();
+    	return true;
+    }
+    
+    public boolean createCharacter(String s){
+    	File tempChar = new File(this.getFilesDir(), "/chars/" + s + ".txt");
+    	
     	try {
-    		saveFile.createNewFile(); //Create the file if it doesn't exist
-    		os = new BufferedWriter(new FileWriter(saveFile, true));
-    		for(String s: list){
-        		os.append(s);
-        		os.newLine();
-        	}
-    		os.close();
-    	} catch (IOException e) {
+			tempChar.createNewFile();
+			BufferedWriter os = new BufferedWriter(new FileWriter(tempChar, true));
+	    	os.append("level:1");
+	    	os.append("experience:0");
+	    	os.append("next:0");
+	    	os.append("class:Warrior");
+	    	os.newLine();
+	    	os.close();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
     	return true;

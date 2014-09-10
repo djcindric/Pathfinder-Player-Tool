@@ -1,13 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/charVertMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <TextView
+    android:orientation="vertical" 
+    android:background="@drawable/customborder_blue">
+	
+	<!--Character Name-->
+    <TextView 
         android:id="@+id/charName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_marginBottom="3dp"
+        android:clickable="true"
+        android:onClick="clickedName"
+        android:gravity="center"
+        android:text="@string/place_holder"
+        android:typeface="serif"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="@drawable/customborder_white" />
+    
+    <!--Layout containing lvl/xp/next and their values-->
+	<LinearLayout
+	       android:id="@+id/charHorizLinearSub1"
+	       android:layout_width="match_parent"
+	       android:layout_height="wrap_content"
+	       android:baselineAligned="false"
+	       android:orientation="horizontal" 
+	       android:background="@drawable/customborder_white"
+	       android:layout_marginBottom="2dp">
+
+		   <LinearLayout
+		       android:id="@+id/charLinear1"
+		       android:layout_width="0dp"
+		       android:layout_height="match_parent"
+		       android:layout_weight="1"
+		       android:orientation="vertical" 
+		       android:background="@drawable/customborder_grey"
+		       android:layout_marginRight="5dp">
+		       
+		       	<TextView
+		       	    android:id="@+id/charLevel"
+		       	    android:layout_height="wrap_content"
+		       	    android:layout_width="match_parent"
+		       	    android:clickable="true"
+		       	    android:gravity="center"
+		       	    android:onClick="clickedLevel"
+		       	    android:text="@string/player_level" />
+		       	
+		       	<TextView
+		       	    android:id="@+id/charLevelValue"
+		       	    android:layout_height="wrap_content"
+		       	    android:layout_width="match_parent"
+		       	    android:clickable="true"
+		       	    android:gravity="center"
+		       	    android:onClick="clickedLevel"
+		       	    android:text="20" />
+		
+		   </LinearLayout>
+		   
+		   <LinearLayout
+		       android:id="@+id/charLinear2"
+		       android:layout_width="0dp"
+		       android:layout_height="wrap_content"
+		       android:layout_weight="2"
+		       android:orientation="vertical" 
+		       android:background="@drawable/customborder_grey"
+		       android:layout_marginRight="5dp">
+		       <TextView
+		       		android:id="@+id/charExperience"
+		     	    android:layout_height="wrap_content"
+		       	    android:layout_width="match_parent"
+		     	    android:clickable="true"
+		     	    android:gravity="center"
+		     	    android:onClick="clickedExperience"
+		     	    android:text="@string/player_experience" />
+		       <TextView
+		       	    android:id="@+id/charExperienceValue"
+		       	    android:layout_height="wrap_content"
+		       	    android:layout_width="match_parent"
+		       	    android:clickable="true"
+		       	    android:gravity="center"
+		       	    android:onClick="clickedExperience"
+		       	    android:text="100" />
+		      
+		   </LinearLayout>
+		   
+		   <LinearLayout
+		       android:id="@+id/charLinear3"
+		       android:layout_width="0dp"
+		       android:layout_height="wrap_content"
+		       android:layout_weight="1"
+		       android:orientation="vertical" 
+		       android:background="@drawable/customborder_grey"
+		       android:layout_marginRight="5dp">
+		       <TextView
+		       	    android:id="@+id/charNext"
+		       	    android:layout_height="wrap_content"
+		       	    android:layout_width="match_parent"
+		       	    android:clickable="true"
+		       	    android:gravity="center"
+		       	    android:onClick="clickedNext"
+		       	    android:text="@string/player_next" />
+		       <TextView
+		       	    android:id="@+id/charNextValue"
+		       	    android:layout_height="wrap_content"
+		       	    android:layout_width="match_parent"
+		       	    android:clickable="true"
+		       	    android:gravity="center"
+		       	    android:onClick="clickedNext"
+		       	    android:text="1000" />
+		      
+		   </LinearLayout>
+		   <LinearLayout
+		       android:id="@+id/charLinear4"
+		       android:layout_width="0dp"
+		       android:layout_height="wrap_content"
+		       android:layout_weight="1"
+		       android:orientation="vertical" 
+		       android:background="@drawable/customborder_grey">
+		      <TextView
+		       	    android:id="@+id/charLevelUp"
+		       	    android:layout_height="wrap_content"
+		       	    android:layout_width="match_parent"
+		       	    android:clickable="true"
+		       	    android:gravity="center"
+		       	    android:onClick="clickedLevelUp"
+		       	    android:text="Level Up" />
+		      
+		   </LinearLayout>		
+	</LinearLayout>
+
+	
+	<!--Layout containing class-->
+    <LinearLayout
+        android:id="@+id/charVertLinearSub2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal"
+        android:background="@drawable/customborder_white"
+        android:layout_marginBottom="3dp">
+		   <TextView
+		       	    android:id="@+id/charClass"
+		       	    android:layout_width="0dp"
+		       	    android:layout_height="match_parent"
+		       	    android:layout_weight="1"
+		       	    android:gravity="center"
+		       	    android:text="Class: " />
+		   <TextView
+		       	    android:id="@+id/charClassValue"
+		       	    android:layout_width="0dp"
+		       	    android:layout_height="match_parent"
+		       	    android:layout_weight="1"
+		       	    android:gravity="center"
+		       	    android:text="Warrior" />
+
+    </LinearLayout>
+
+    <!--Layout containing info-->
+    <LinearLayout
+        android:id="@+id/charVertLinearSub3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal"
+        android:background="@drawable/customborder_white"
+        android:layout_marginBottom="3dp">
+		   <TextView
+		       	    android:id="@+id/charInfo"
+		       	    android:layout_width="0dp"
+		       	    android:layout_height="match_parent"
+		       	    android:layout_weight="1"
+		       	    android:gravity="center"
+		       	    android:text="Info" />
+    </LinearLayout>
 
 </LinearLayout>

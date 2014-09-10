@@ -6,5 +6,11 @@
     <string name="action_settings">Settings</string>
     <string name="new_character">New Character</string>
     <string name="title_activity_main_tabbed">MainTabbedActivity</string>
+    <string name="place_holder">ph</string>
+    <string name="player_level">Level</string>
+    <string name="player_experience">Experience</string>
+    <string name="player_next">Next</string>
+    <string name="player_class">Class</string>
+    <string name="level_up">Level Up</string>
 
 </resources>

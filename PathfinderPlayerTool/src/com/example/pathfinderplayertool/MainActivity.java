@@ -154,7 +154,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
     	t.show();
     	 try
          {
-    		 File f = new File(this.getFilesDir(), "/chars/" + s + "-" + ID + ".ser");
+    		File f = new File(this.getFilesDir(), "/chars/" + s + "-" + ID + ".ser");
             FileOutputStream fileOut = new FileOutputStream(f);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(newChar);

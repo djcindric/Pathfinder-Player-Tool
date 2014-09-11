@@ -17,16 +17,39 @@ public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
 
 	@Override
 	public Fragment getItem(int i) {
+		Fragment frag=null;
+		
 		switch(i){
 			case 0:
-				Fragment frag = new ProfileFragment(MainTabbedActivity.message);
+				frag = new ProfileFragment(MainTabbedActivity.message);
+				return frag;
+			case 1:
+				frag = new AbilityFragment();
+				return frag;
+			case 2:
+				frag = new EquipmentFragment();
+				return frag;
+			case 3:
+				frag = new SkillsFragment();
+				return frag;
+			case 4:
+				frag = new InventoryFragment();
+				return frag;
+			case 5:
+				frag = new FeatsFragment();
+				return frag;
+			case 6:
+				frag = new SpellsFragment();
+				return frag;
+			case 7:
+				frag = new NotesFragment();
 				return frag;
 			default:
-				Fragment fragment = new DemoObjectFragment();
+				frag = new DemoObjectFragment();
 				Bundle args = new Bundle();
 				args.putInt(DemoObjectFragment.ARG_OBJECT, i + 1);
-				fragment.setArguments(args);
-				return fragment;
+				frag.setArguments(args);
+				return frag;
 		}
 	}
 

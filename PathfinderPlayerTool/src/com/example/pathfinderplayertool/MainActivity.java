@@ -1,11 +1,9 @@
 package com.example.pathfinderplayertool;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
@@ -16,7 +14,6 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity  implements NewCharacterDialogFragment.NoticeDialogListener{
 	final ArrayList<String> list = new ArrayList<String>();
@@ -119,8 +117,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 			return true;
 		}
 		if (id == R.id.new_character) {
-			NewCharacterDialogFragment dialog = new NewCharacterDialogFragment();
-			dialog.show(getFragmentManager(), null);
+			promptTutorial();
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -142,28 +139,59 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
     public void onDialogNegativeClick(DialogFragment d) {
     }
     
-    
+    //Delete a character file
     public boolean removeCharacter(String s){
-    	File tempChar = new File(this.getFilesDir(), "/chars/" + s + ".txt");
+    	File tempChar = new File(this.getFilesDir(), "/chars/" + s + ".ser");
     	tempChar.delete();
     	return true;
     }
     
+    //With serialization
     public boolean createCharacter(String s){
-    	File tempChar = new File(this.getFilesDir(), "/chars/" + s + ".txt");
-    	
-    	try {
-			tempChar.createNewFile();
-			BufferedWriter os = new BufferedWriter(new FileWriter(tempChar, true));
-	    	os.append("level:1");
-	    	os.append("experience:0");
-	    	os.append("next:0");
-	    	os.append("class:Warrior");
-	    	os.newLine();
-	    	os.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+    	int ID = CharacterID.generateID(this.getFilesDir());
+    	Character newChar = new Character(s, ID);
+    	Toast t = Toast.makeText(this, ID+s, Toast.LENGTH_SHORT);
+    	t.show();
+    	 try
+         {
+    		 File f = new File(this.getFilesDir(), "/chars/" + s + "-" + ID + ".ser");
+            FileOutputStream fileOut = new FileOutputStream(f);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(newChar);
+            out.close();
+            fileOut.close();
+            System.out.printf("Serialized data is saved in /chars/ID-Name.ser");
+         }catch(IOException i)
+         {
+             i.printStackTrace();
+         }
     	return true;
+    }
+    
+    //Prompt to start tutorial
+    public void promptTutorial(){
+    	new AlertDialog.Builder(this).setTitle("Help").setMessage("Would you like help creating your character? \n(This message can be disabled in the settings)")
+		.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) { 
+		    	startTutorial();
+			}
+			})
+		.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) { 
+				skipTutorial();
+			}
+			}).setIcon(android.R.drawable.ic_dialog_alert).show();     
+    }
+    
+    //Skip the tutorial. Prompt for character name
+    public void skipTutorial(){
+    	NewCharacterDialogFragment dialog = new NewCharacterDialogFragment();
+		dialog.show(getFragmentManager(), null);
+    }
+    
+    //Start the tutorial
+    public void startTutorial(){
+    	Toast t = Toast.makeText(this, "TODO:Start Tutorial", Toast.LENGTH_SHORT);
+    	t.show();
     }
 }

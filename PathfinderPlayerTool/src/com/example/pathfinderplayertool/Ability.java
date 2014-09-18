@@ -2,13 +2,13 @@ package com.example.pathfinderplayertool;
 
 public class Ability {
 	//Name of the ability
-	private String name;
+//	private String name;
 	
 	//Description of what the ability does
-	private String descr;
+//	private String descr;
 	
 	//Type of ability that it is. Ex = Extraordinary. Sp = Spell-like. Su = Supernatural
-	private String type;
+//	private String type;
 	
 	/*
 	 * Some abilities provide bonuses such as an increased attribute, damage reduction,
@@ -18,4 +18,10 @@ public class Ability {
 	 * private Bonus bonuses;
 	 */
 	
+	/*
+	 * This Class could contain only the Ability scores (Str, Dex, Con, Int, Wis, Cha) represented as integers
+	 * along with a get/set method.
+	 * Pathfinder specifies other abilities as special abilities so we could implement a separate dynamic SpecialAbility
+	 * class with the description, type, and bonuses
+	 */
 }

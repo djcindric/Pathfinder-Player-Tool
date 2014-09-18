@@ -3,8 +3,8 @@ package com.example.pathfinderplayertool;
 import java.util.ArrayList;
 
 public class Weapon {
-	public String WeaponName;
-	public ArrayList<String> Attributes;
+	private String WeaponName;
+	private ArrayList<String> Attributes;
 	
 	public Weapon(String name, ArrayList<String> attributes){
 		WeaponName = name;

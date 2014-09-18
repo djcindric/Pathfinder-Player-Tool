@@ -76,9 +76,9 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Add", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                thisCharacter.setExperience(thisCharacter.Experience + Integer.parseInt(value.toString()));
+                thisCharacter.setExperience(thisCharacter.getExperience() + Integer.parseInt(value.toString()));
                 TextView tv = (TextView) findViewById(R.id.charExperienceValue);
-                tv.setText(thisCharacter.Experience);
+                tv.setText(thisCharacter.getExperience());
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {

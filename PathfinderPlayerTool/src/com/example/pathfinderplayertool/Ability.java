@@ -17,4 +17,5 @@ public class Ability {
 	 * 
 	 * private Bonus bonuses;
 	 */
+	
 }

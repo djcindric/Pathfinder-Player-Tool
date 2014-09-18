@@ -41,10 +41,32 @@ public class Character implements Serializable{
 	public Character(String name, int id){
 		Name = name;
 		ID = id;
-		Level=9;
-		Experience=1337;
-		Next=2000;
-		Class="Orc";
+	}
+	
+	public void setID(int id){
+		ID = id;
+	}
+	public void setLevel(int level){
+		Level = level;
+	}
+	public void setExperience(int experience){
+		Experience = experience;
+	}
+	public void setNext(int next){
+		Next = next;
+	}
+	public void setAge(int age){
+		Age = age;
+	}
+	public void setHeight(int height){
+		Height = height;
+	}
+	public void setWeight(int weight){
+		Weight = weight;
+	}
+	
+	public int getLevel(){
+		return Level;
 	}
 	
 	public void addWeapon(Weapon w){

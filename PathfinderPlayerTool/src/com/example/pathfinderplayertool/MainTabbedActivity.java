@@ -32,8 +32,6 @@ public class MainTabbedActivity extends FragmentActivity {
         //Receive the string (Character Name) Passed from the calling activity
 		Intent intent = getIntent();
 		message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-		Toast t = Toast.makeText(this, message, Toast.LENGTH_SHORT);
-		t.show();
 		//Change the action bar title
 		ActionBar ab = getActionBar();
         ab.setTitle(message);
@@ -62,44 +60,30 @@ public class MainTabbedActivity extends FragmentActivity {
     }
     
     public void clickedName(final View v){
-    	final EditText input = new EditText(this);
-    	new AlertDialog.Builder(this)
-        .setTitle("Change Name")
-        .setMessage("Enter new name")
-        .setView(input)
-        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                Editable value = input.getText(); 
-                TextView tv = (TextView) findViewById(R.id.charName);
-                tv.setText(value);
-            }
-        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-            }
-        }).show();
+    	
     }
     
     public void clickedLevel(final View v){
+    	
+    }
+    
+    public void clickedExperience(View v){
     	final EditText input = new EditText(this);
     	new AlertDialog.Builder(this)
-        .setTitle("Change Level")
-        .setMessage("Enter new level")
+        .setTitle("Add Experience")
+        .setMessage("Enter amount of experience to add")
         .setView(input)
-        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                TextView tv = (TextView) findViewById(R.id.charLevelValue);
-                tv.setText(value);
+                thisCharacter.setExperience(thisCharacter.Experience + Integer.parseInt(value.toString()));
+                TextView tv = (TextView) findViewById(R.id.charExperienceValue);
+                tv.setText(thisCharacter.Experience);
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
             }
         }).show();
-    }
-    
-    public void clickedExperience(View v){
-    	Toast t = Toast.makeText(this, "Edit Experience", Toast.LENGTH_SHORT);
-    	t.show();
     }
     
     public void clickedNext(View v){
@@ -108,19 +92,12 @@ public class MainTabbedActivity extends FragmentActivity {
     }
     
     public void clickedLevelUp(View v){
-    	Toast t = Toast.makeText(this, "Level Up", Toast.LENGTH_SHORT);
+    	//Increment players level and display the new change
+    	thisCharacter.setLevel(thisCharacter.getLevel()+1);
+        TextView tv = (TextView) findViewById(R.id.charLevelValue);
+        tv.setText(thisCharacter.getLevel()); 
+        
+        Toast t = Toast.makeText(this, "Level Up", Toast.LENGTH_SHORT);
     	t.show();
-    	
-    	TextView tv;
-        tv = (TextView) findViewById(R.id.charLevelValue);
-        tv.setText("" + thisCharacter.Level);
-        tv = (TextView) findViewById(R.id.charClassValue);
-        tv.setText(thisCharacter.Class);
-        tv = (TextView) findViewById(R.id.charExperienceValue);
-        tv.setText("" + thisCharacter.Experience);
-        tv = (TextView) findViewById(R.id.charNextValue);
-        tv.setText("" + thisCharacter.Next);
-        tv = (TextView) findViewById(R.id.charName);
-        tv.setText("" + thisCharacter.Name);
     }
 }

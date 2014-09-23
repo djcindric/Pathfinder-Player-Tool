@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -40,8 +41,7 @@ public class MainTabbedActivity extends FragmentActivity {
 		mMainTabbedPagerAdapter = new MainTabbedPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mMainTabbedPagerAdapter);
- 
-        
+
         //Retrieve the character object by the name/ID
         try
         {
@@ -58,6 +58,39 @@ public class MainTabbedActivity extends FragmentActivity {
         
         
     }
+    
+    @Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.load_profile) {
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.PROFILE, true);
+		}
+		if (id == R.id.load_abilities) {
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.ABILITY, true);
+		}
+		if (id == R.id.load_equipment) {
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.EQUIPMENT, true);
+		}
+		if (id == R.id.load_skills) {
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.SKILLS, true);
+		}
+		if (id == R.id.load_inventory) {
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.INVENTORY, true);
+		}
+		if (id == R.id.load_feats) {
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.FEATS, true);
+		}
+		if (id == R.id.load_spells) {
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.SPELLS, true);
+		}
+		if (id == R.id.load_notes) {
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.NOTES, true);
+		}
+		return super.onOptionsItemSelected(item);
+	}
     
     public void clickedName(final View v){
     	

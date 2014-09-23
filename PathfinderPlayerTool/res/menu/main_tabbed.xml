@@ -7,5 +7,46 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item 
+        android:id="@+id/load_profile" 
+        android:title="@string/load_profile" 
+        android:orderInCategory="1" 
+        android:showAsAction="never"/>
+    <item 
+        android:id="@+id/load_abilities" 
+        android:title="@string/load_abilities" 
+        android:orderInCategory="2" 
+        android:showAsAction="never"/>
+    <item 
+        android:id="@+id/load_equipment" 
+        android:title="@string/load_equipment" 
+        android:orderInCategory="3" 
+        android:showAsAction="never"/>
+    <item 
+        android:id="@+id/load_skills" 
+        android:title="@string/load_skills" 
+        android:orderInCategory="4" 
+        android:showAsAction="never"/>
+    <item 
+        android:id="@+id/load_inventory" 
+        android:title="@string/load_inventory" 
+        android:orderInCategory="5" 
+        android:showAsAction="never"/>
+    <item 
+        android:id="@+id/load_feats" 
+        android:title="@string/load_feats" 
+        android:orderInCategory="6" 
+        android:showAsAction="never"/>
+    <item 
+        android:id="@+id/load_spells" 
+        android:title="@string/load_spells" 
+        android:orderInCategory="7" 
+        android:showAsAction="never"/>
+    <item 
+        android:id="@+id/load_notes" 
+        android:title="@string/load_notes" 
+        android:orderInCategory="8" 
+        android:showAsAction="never"/>
+    
 
 </menu>

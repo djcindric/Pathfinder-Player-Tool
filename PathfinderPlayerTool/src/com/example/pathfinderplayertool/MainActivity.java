@@ -119,6 +119,9 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		if (id == R.id.new_character) {
 			promptTutorial();
 		}
+		if(id == R.id.rate_application){
+			rateApplication();
+		}
 		return super.onOptionsItemSelected(item);
 	}
 	
@@ -127,6 +130,11 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
         list.add(s);
         adapter.notifyDataSetChanged();
         createCharacter(s);
+	}
+	
+	//TODO Add link to rate application in store
+	public void rateApplication(){
+		
 	}
 	
 	public void onDialogPositiveClick(DialogFragment d) {

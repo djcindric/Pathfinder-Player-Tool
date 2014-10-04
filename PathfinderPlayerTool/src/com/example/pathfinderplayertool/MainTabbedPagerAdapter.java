@@ -7,9 +7,19 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
 	int NUMTABS = 8; //The number of tabs in the main view
+	
+	public static int PROFILE 	= 0; 	
+	public static int ABILITY 	= 1;
+	public static int EQUIPMENT = 2;
+	public static int SKILLS 	= 3;	//Static ints for referencing pages. 
+	public static int INVENTORY = 4;	//Must be updated if page order changes
+	public static int FEATS 	= 5;
+	public static int SPELLS 	= 6;
+	public static int NOTES 	= 7;
 	
 	public MainTabbedPagerAdapter(FragmentManager fm) {
 		super(fm);

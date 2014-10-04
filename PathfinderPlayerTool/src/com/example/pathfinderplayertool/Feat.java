@@ -1,5 +1,7 @@
 package com.example.pathfinderplayertool;
 
-public class Feat {
+import java.io.Serializable;
+
+public class Feat implements Serializable{
 
 }

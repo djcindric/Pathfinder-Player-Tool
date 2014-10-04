@@ -4,8 +4,7 @@
     android:id="@+id/charVertMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/bamboo">
+    android:orientation="vertical" >
 	
 	<!--Character Name-->
     <TextView 
@@ -57,7 +56,7 @@
 		       	    android:clickable="true"
 		       	    android:gravity="center"
 		       	    android:onClick="clickedLevel"
-		       	    android:text="20" />
+		       	    android:text="" />
 		
 		   </LinearLayout>
 		   
@@ -84,7 +83,7 @@
 		       	    android:clickable="true"
 		       	    android:gravity="center"
 		       	    android:onClick="clickedExperience"
-		       	    android:text="100" />
+		       	    android:text="" />
 		      
 		   </LinearLayout>
 		   
@@ -111,7 +110,7 @@
 		       	    android:clickable="true"
 		       	    android:gravity="center"
 		       	    android:onClick="clickedNext"
-		       	    android:text="1000" />
+		       	    android:text="" />
 		      
 		   </LinearLayout>
 		   <LinearLayout
@@ -128,7 +127,7 @@
 		       	    android:clickable="true"
 		       	    android:gravity="center"
 		       	    android:onClick="clickedLevelUp"
-		       	    android:text="Level Up" />
+		       	    android:text="@string/player_level_up" />
 		      
 		   </LinearLayout>		
 	</LinearLayout>
@@ -148,14 +147,14 @@
 		       	    android:layout_height="match_parent"
 		       	    android:layout_weight="1"
 		       	    android:gravity="center"
-		       	    android:text="Class: " />
+		       	    android:text="@string/player_class" />
 		   <TextView
 		       	    android:id="@+id/charClassValue"
 		       	    android:layout_width="0dp"
 		       	    android:layout_height="match_parent"
 		       	    android:layout_weight="1"
 		       	    android:gravity="center"
-		       	    android:text="Warrior" />
+		       	    android:text="" />
 
     </LinearLayout>
 
@@ -173,7 +172,7 @@
 		       	    android:layout_height="match_parent"
 		       	    android:layout_weight="1"
 		       	    android:gravity="center"
-		       	    android:text="Info" />
+		       	    android:text="@string/player_info" />
     </LinearLayout>
 
 </LinearLayout>

@@ -1,8 +1,9 @@
 package com.example.pathfinderplayertool;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Armor {
+public class Armor implements Serializable{
 	private String ArmorName;
 	private ArrayList<String> Attributes;
 	

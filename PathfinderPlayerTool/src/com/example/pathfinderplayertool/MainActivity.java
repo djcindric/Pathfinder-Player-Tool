@@ -28,6 +28,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 	public ArrayAdapter<String> adapter = null;
 	public static int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+	public static File fileDir;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		ab.setSubtitle("Pathfinder Player Tool");
 		
 		//Open the character directory. Create it if it doesnt already exist
+		fileDir = this.getFilesDir();
 		File saveFilesDir = new File(this.getFilesDir(), "/chars/");
 		saveFilesDir.mkdir();
 
@@ -127,8 +129,8 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 	
 	//Create a new character. Add it to the list
 	public void newCharacter(String s){
-        list.add(s);
-        adapter.notifyDataSetChanged();
+//        list.add(s);
+//        adapter.notifyDataSetChanged();
         createCharacter(s);
 	}
 	
@@ -168,11 +170,16 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
             out.writeObject(newChar);
             out.close();
             fileOut.close();
-            System.out.printf("Serialized data is saved in /chars/ID-Name.ser");
          }catch(IOException i)
          {
+        	 Toast ts = Toast.makeText(this, "IOException saving character", Toast.LENGTH_SHORT);
+         	 ts.show();
              i.printStackTrace();
          }
+    	 
+    	list.add(s + "-" + ID);
+        adapter.notifyDataSetChanged();
+         
     	return true;
     }
     
@@ -184,7 +191,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		    	startTutorial();
 			}
 			})
-		.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+		.setNegativeButton("No", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) { 
 				skipTutorial();
 			}

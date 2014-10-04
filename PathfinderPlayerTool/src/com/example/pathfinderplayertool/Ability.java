@@ -1,6 +1,8 @@
 package com.example.pathfinderplayertool;
 
-public class Ability {
+import java.io.Serializable;
+
+public class Ability implements Serializable{
 	//Name of the ability
 //	private String name;
 	

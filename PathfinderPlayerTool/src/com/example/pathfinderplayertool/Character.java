@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Character implements Serializable{
-	
-	private static final long serialVersionUID = 8141948373632578808L;
+
+	private static final long serialVersionUID = -7400878238089045378L;
 	private int ID;
 	private int Level;
 	private int Experience;
@@ -13,6 +13,7 @@ public class Character implements Serializable{
 	private int Age;
 	private int Height;
 	private int Weight;
+	private int BaseHealth;
 	private String Name;
 	private String CharClass;
 	private String Race;
@@ -30,7 +31,7 @@ public class Character implements Serializable{
 	private ArrayList<Spell> Spells;
 	private ArrayList<Feat> Feats;
 	private Ability Abilities;
-	private Skill Skills;
+	private Skill Skills = new Skill();
 	
 	public Character(){
 		
@@ -263,5 +264,13 @@ public class Character implements Serializable{
 
 	public void setFeats(ArrayList<Feat> feats) {
 		Feats = feats;
+	}
+
+	public int getBaseHealth() {
+		return BaseHealth;
+	}
+
+	public void setBaseHealth(int baseHealth) {
+		BaseHealth = baseHealth;
 	}
 }

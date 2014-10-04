@@ -24,5 +24,13 @@
     <string name="load_special_abilities">Load Special Abilities</string>
     <string name="load_spells">Load Spells</string>
     <string name="load_notes">Load Notes</string>
+    <string name="skill_base_value">10</string>
+    <string name="strength">Strength</string>
+    <string name="dexterity">Dexterity</string>
+    <string name="constitution">Constitution</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="charisma">Charisma</string>
+    <string name="wisdom">Wisdom</string>
+    <string name="health">Health</string>
 
 </resources>

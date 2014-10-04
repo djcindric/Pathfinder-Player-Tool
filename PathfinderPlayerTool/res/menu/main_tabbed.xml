@@ -7,6 +7,12 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/save_character"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Save Character"
+        android:icon="@drawable/save_character_icon"/>
     <item 
         android:id="@+id/load_profile" 
         android:title="@string/load_profile" 

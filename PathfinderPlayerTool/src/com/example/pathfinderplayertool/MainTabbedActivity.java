@@ -2,8 +2,11 @@ package com.example.pathfinderplayertool;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Random;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -13,6 +16,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -33,11 +37,7 @@ public class MainTabbedActivity extends FragmentActivity {
         //Receive the string (Character Name) Passed from the calling activity
 		Intent intent = getIntent();
 		message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-		//Change the action bar title
-		ActionBar ab = getActionBar();
-        ab.setTitle(message);
-        ab.setSubtitle("Pathfinder Player Tool");
-        
+		
 		mMainTabbedPagerAdapter = new MainTabbedPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mMainTabbedPagerAdapter);
@@ -55,9 +55,19 @@ public class MainTabbedActivity extends FragmentActivity {
 
     	Toast ts = Toast.makeText(this, "IOException loading character", Toast.LENGTH_SHORT);
     	ts.show();}catch(ClassNotFoundException c){c.printStackTrace();}
-        
-        
+      
+        //Change the action bar title
+		ActionBar ab = getActionBar();
+		ab.setTitle(thisCharacter.getName());
+		ab.setSubtitle("Pathfinder Player Tool");
     }
+    
+    @Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main_tabbed, menu);
+		return true;
+	}
     
     @Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -65,6 +75,9 @@ public class MainTabbedActivity extends FragmentActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+		if (id == R.id.save_character) {
+			saveCharacter();
+		}
 		if (id == R.id.load_profile) {
 			mViewPager.setCurrentItem(MainTabbedPagerAdapter.PROFILE, true);
 		}
@@ -111,7 +124,7 @@ public class MainTabbedActivity extends FragmentActivity {
                 Editable value = input.getText(); 
                 thisCharacter.setExperience(thisCharacter.getExperience() + Integer.parseInt(value.toString()));
                 TextView tv = (TextView) findViewById(R.id.charExperienceValue);
-                tv.setText(thisCharacter.getExperience());
+                tv.setText("" + thisCharacter.getExperience());
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -128,9 +141,105 @@ public class MainTabbedActivity extends FragmentActivity {
     	//Increment players level and display the new change
     	thisCharacter.setLevel(thisCharacter.getLevel()+1);
         TextView tv = (TextView) findViewById(R.id.charLevelValue);
-        tv.setText(thisCharacter.getLevel()); 
+        tv.setText("" + thisCharacter.getLevel()); 
         
         Toast t = Toast.makeText(this, "Level Up", Toast.LENGTH_SHORT);
     	t.show();
     }
+    
+    public void saveCharacter(){
+    	 try
+         {
+    		File f = new File(this.getFilesDir(), "/chars/" + message + ".ser");
+            FileOutputStream fileOut = new FileOutputStream(f);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(thisCharacter);
+            out.close();
+            fileOut.close();
+            
+            Toast t = Toast.makeText(this, "Character Saved", Toast.LENGTH_SHORT);
+        	t.show();
+         }catch(IOException i)
+         {
+             i.printStackTrace();
+         }
+    }
+    
+    public void viewStrength(View v){
+    	Toast t = Toast.makeText(this, "Strength = 10", Toast.LENGTH_SHORT);
+    	t.show();
+    }
+    
+    public void viewDexterity(View v){
+    	
+    }
+
+    public void viewConstitution(View v){
+    	
+    }
+    
+    public void viewIntelligence(View v){
+    	
+    }
+    
+    public void viewWisdom(View v){
+    	
+    }
+    
+    public void viewCharisma(View v){
+    	
+    }
+    
+    public void changePhoto(View v){
+    	Toast t = Toast.makeText(this, "Change your photo", Toast.LENGTH_SHORT);
+    	t.show();
+    }
+    
+    public void rollStrength(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    }
+    
+    public void rollDexterity(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void rollConstitution(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void rollIntelligence(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void rollWisdom(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void rollCharisma(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
 }

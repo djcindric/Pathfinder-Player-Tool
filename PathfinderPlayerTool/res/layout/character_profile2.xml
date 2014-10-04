@@ -275,10 +275,17 @@
 		android:layout_height="0dp"
 		android:layout_weight="3"
         android:orientation="horizontal" >
-        <TextView
+        
+        <LinearLayout
+	       android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+	        android:orientation="vertical">
+            
+            <TextView
 	            android:id="@+id/hp_text"
 	            android:layout_width="match_parent"
-			    android:layout_height="match_parent"
+			    android:layout_height="0dp"
 			    android:layout_weight="1"
 			    android:gravity="center"
 			    android:background="#000"
@@ -287,8 +294,132 @@
 			    android:layout_marginBottom="2dp"
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
-			    android:onClick="viewHP"
 	            android:text="@string/health" />
+            <TextView
+	            android:id="@+id/ac_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/armor_class" />
+            <TextView
+	            android:id="@+id/flat_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/flatfooted" />
+            <TextView
+	            android:id="@+id/touch_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/touch" />
+            <TextView
+	            android:id="@+id/saves_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/saves_cmd" />
+            
+    	</LinearLayout>
+    	
+    	<LinearLayout
+	        android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+	        android:orientation="vertical">
+            <TextView
+	            android:id="@+id/init_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/init" />
+            <TextView
+	            android:id="@+id/bab_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/base_attack" />
+            <TextView
+	            android:id="@+id/cmb_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/cmb" />
+            <TextView
+	            android:id="@+id/move_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/move" />
+            <TextView
+	            android:id="@+id/nothing_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="" />
+    	</LinearLayout>
         
     </LinearLayout>
 

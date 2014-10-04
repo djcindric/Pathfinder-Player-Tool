@@ -31,6 +31,14 @@
     <string name="intelligence">Intelligence</string>
     <string name="charisma">Charisma</string>
     <string name="wisdom">Wisdom</string>
-    <string name="health">Health</string>
+    <string name="health">HP</string>
+    <string name="armor_class">AC</string>
+    <string name="flatfooted">Flatfooted</string>
+    <string name="touch">Touch</string>
+    <string name="saves_cmd">Saves/CMD</string>
+    <string name="init">Init</string>
+    <string name="base_attack">BAB</string>
+    <string name="cmb">CMB</string>
+    <string name="move">Move</string>
 
 </resources>

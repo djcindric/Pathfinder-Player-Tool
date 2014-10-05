@@ -105,47 +105,47 @@ public class MainTabbedActivity extends FragmentActivity {
 		return super.onOptionsItemSelected(item);
 	}
     
-    public void clickedName(final View v){
-    	
-    }
-    
-    public void clickedLevel(final View v){
-    	
-    }
-    
-    public void clickedExperience(View v){
-    	final EditText input = new EditText(this);
-    	new AlertDialog.Builder(this)
-        .setTitle("Add Experience")
-        .setMessage("Enter amount of experience to add")
-        .setView(input)
-        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                Editable value = input.getText(); 
-                thisCharacter.setExperience(thisCharacter.getExperience() + Integer.parseInt(value.toString()));
-                TextView tv = (TextView) findViewById(R.id.charExperienceValue);
-                tv.setText("" + thisCharacter.getExperience());
-            }
-        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-            }
-        }).show();
-    }
-    
-    public void clickedNext(View v){
-    	Toast t = Toast.makeText(this, "Edit Next", Toast.LENGTH_SHORT);
-    	t.show();
-    }
-    
-    public void clickedLevelUp(View v){
-    	//Increment players level and display the new change
-    	thisCharacter.setLevel(thisCharacter.getLevel()+1);
-        TextView tv = (TextView) findViewById(R.id.charLevelValue);
-        tv.setText("" + thisCharacter.getLevel()); 
-        
-        Toast t = Toast.makeText(this, "Level Up", Toast.LENGTH_SHORT);
-    	t.show();
-    }
+//    public void clickedName(final View v){
+//    	
+//    }
+//    
+//    public void clickedLevel(final View v){
+//    	
+//    }
+//    
+//    public void clickedExperience(View v){
+//    	final EditText input = new EditText(this);
+//    	new AlertDialog.Builder(this)
+//        .setTitle("Add Experience")
+//        .setMessage("Enter amount of experience to add")
+//        .setView(input)
+//        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int whichButton) {
+//                Editable value = input.getText(); 
+//                thisCharacter.setExperience(thisCharacter.getExperience() + Integer.parseInt(value.toString()));
+//                TextView tv = (TextView) findViewById(R.id.charExperienceValue);
+//                tv.setText("" + thisCharacter.getExperience());
+//            }
+//        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int whichButton) {
+//            }
+//        }).show();
+//    }
+//    
+//    public void clickedNext(View v){
+//    	Toast t = Toast.makeText(this, "Edit Next", Toast.LENGTH_SHORT);
+//    	t.show();
+//    }
+//    
+//    public void clickedLevelUp(View v){
+//    	//Increment players level and display the new change
+//    	thisCharacter.setLevel(thisCharacter.getLevel()+1);
+//        TextView tv = (TextView) findViewById(R.id.charLevelValue);
+//        tv.setText("" + thisCharacter.getLevel()); 
+//        
+//        Toast t = Toast.makeText(this, "Level Up", Toast.LENGTH_SHORT);
+//    	t.show();
+//    }
     
     public void saveCharacter(){
     	 try
@@ -166,28 +166,123 @@ public class MainTabbedActivity extends FragmentActivity {
     }
     
     public void viewStrength(View v){
-    	Toast t = Toast.makeText(this, "Strength = 10", Toast.LENGTH_SHORT);
-    	t.show();
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Strength")
+        .setMessage("Enter new strength value")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                int val1 = Integer.parseInt(value.toString());
+                thisCharacter.getSkills().setStrength(val1);
+                TextView tv = (TextView) findViewById(R.id.str_value_text);
+                tv.setText("" + val1);
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
     }
     
     public void viewDexterity(View v){
-    	
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Dexterity")
+        .setMessage("Enter new dexterity value")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                int val1 = Integer.parseInt(value.toString());
+                thisCharacter.getSkills().setDexterity(val1);
+                TextView tv = (TextView) findViewById(R.id.dex_value_text);
+                tv.setText("" + val1);
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
     }
 
     public void viewConstitution(View v){
-    	
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Constitution")
+        .setMessage("Enter new constitution value")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                int val1 = Integer.parseInt(value.toString());
+                thisCharacter.getSkills().setConstitution(val1);
+                TextView tv = (TextView) findViewById(R.id.con_value_text);
+                tv.setText("" + val1);
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
     }
     
     public void viewIntelligence(View v){
-    	
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Intelligence")
+        .setMessage("Enter new intelligence value")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                int val1 = Integer.parseInt(value.toString());
+                thisCharacter.getSkills().setIntelligence(val1);
+                TextView tv = (TextView) findViewById(R.id.int_value_text);
+                tv.setText("" + val1);
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
     }
     
     public void viewWisdom(View v){
-    	
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Wisdom")
+        .setMessage("Enter new wisdom value")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                int val1 = Integer.parseInt(value.toString());
+                thisCharacter.getSkills().setWisdom(val1);
+                TextView tv = (TextView) findViewById(R.id.wis_value_text);
+                tv.setText("" + val1);
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
     }
     
     public void viewCharisma(View v){
-    	
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Charisma")
+        .setMessage("Enter new charisma value")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                int val1 = Integer.parseInt(value.toString());
+                thisCharacter.getSkills().setCharisma(val1);
+                TextView tv = (TextView) findViewById(R.id.cha_value_text);
+                tv.setText("" + val1);
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
     }
     
     public void changePhoto(View v){
@@ -198,14 +293,14 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollStrength(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getStrength() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     }
     
     public void rollDexterity(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getDexterity() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }
@@ -213,7 +308,7 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollConstitution(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getConstitution() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }
@@ -221,7 +316,7 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollIntelligence(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getIntelligence() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }
@@ -229,7 +324,7 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollWisdom(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getWisdom() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }
@@ -237,7 +332,7 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollCharisma(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, "" + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getCharisma() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }

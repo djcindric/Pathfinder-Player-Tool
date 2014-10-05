@@ -42,6 +42,7 @@
 			    android:layout_marginBottom="2dp"
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
+			    android:clickable="true"
 			    android:onClick="viewStrength"
 	            android:text="@string/strength" />
             <TextView
@@ -55,6 +56,8 @@
 			    android:layout_marginBottom="2dp"
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewDexterity"
 	            android:text="@string/dexterity" />
             <TextView
 	            android:id="@+id/con_text"
@@ -67,6 +70,8 @@
 			    android:layout_marginBottom="2dp"
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewConstitution"
 	            android:text="@string/constitution" />
             <TextView
 	            android:id="@+id/int_text"
@@ -79,6 +84,8 @@
 			    android:layout_marginBottom="2dp"
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewIntelligence"
 	            android:text="@string/intelligence" />
             <TextView
 	            android:id="@+id/wis_text"
@@ -91,6 +98,8 @@
 			    android:layout_marginBottom="2dp"
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewWisdom"
 	            android:text="@string/wisdom" />
             <TextView
 	            android:id="@+id/cha_text"
@@ -103,6 +112,8 @@
 			    android:layout_marginBottom="2dp"
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewCharisma"
 	            android:text="@string/charisma" />
         </LinearLayout>
         

@@ -16,13 +16,12 @@
     <string name="player_level_up">Level Up</string>
     <string name="rate_application">Rate Application</string>
     <string name="load_profile">Load Profile</string>
-    <string name="load_abilities">Load Abilities</string>
-    <string name="load_equipment">Load Equipment</string>
+    <string name="load_combat">Load Combat</string>
     <string name="load_skills">Load Skills</string>
     <string name="load_inventory">Load Inventory</string>
     <string name="load_feats">Load Feats</string>
     <string name="load_special_abilities">Load Special Abilities</string>
-    <string name="load_spells">Load Spells</string>
+    <string name="load_spells">Load SpellBook</string>
     <string name="load_notes">Load Notes</string>
     <string name="skill_base_value">10</string>
     <string name="strength">Strength</string>

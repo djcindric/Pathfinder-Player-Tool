@@ -12,19 +12,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class SkillsFragment extends Fragment {
+public class CombatFragment extends Fragment {
 	public String charName = "";
 	public Character thisCharacter = null;
 	public TextView tv = null;
 	
-	public SkillsFragment (String s){
+	public CombatFragment (String s){
 		charName = s;
 	}
 	
     @Override
     public View onCreateView(LayoutInflater inflater,
         ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.skills_list, container, false);
+        View rootView = inflater.inflate(R.layout.combat, container, false);
         
         try
         {
@@ -39,7 +39,4 @@ public class SkillsFragment extends Fragment {
         
         return rootView;
     }
-    
-    
-    
 }

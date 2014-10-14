@@ -10,16 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
-	int NUMTABS = 8; //The number of tabs in the main view
+	int NUMTABS = 7; //The number of tabs in the main view
 	
 	public static int PROFILE 	= 0; 	
-	public static int ABILITY 	= 1;
-	public static int EQUIPMENT = 2;
-	public static int SKILLS 	= 3;	//Static ints for referencing pages. 
+	public static int COMBAT 	= 1;
+	public static int SKILLS 	= 2;
+	public static int SPELLBOOK = 3;	//Static ints for referencing pages. 
 	public static int INVENTORY = 4;	//Must be updated if page order changes
 	public static int FEATS 	= 5;
-	public static int SPELLS 	= 6;
-	public static int NOTES 	= 7;
+	public static int NOTES 	= 6;//
 	
 	public MainTabbedPagerAdapter(FragmentManager fm) {
 		super(fm);
@@ -34,13 +33,13 @@ public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
 				frag = new ProfileFragment(MainTabbedActivity.message);
 				return frag;
 			case 1:
-				frag = new AbilityFragment();
+				frag = new CombatFragment(MainTabbedActivity.message);
 				return frag;
 			case 2:
-				frag = new EquipmentFragment();
+				frag = new SkillsFragment(MainTabbedActivity.message);
 				return frag;
 			case 3:
-				frag = new SkillsFragment();
+				frag = new SpellsFragment(MainTabbedActivity.message);
 				return frag;
 			case 4:
 				frag = new InventoryFragment();
@@ -49,9 +48,6 @@ public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
 				frag = new FeatsFragment();
 				return frag;
 			case 6:
-				frag = new SpellsFragment();
-				return frag;
-			case 7:
 				frag = new NotesFragment();
 				return frag;
 			default:
@@ -74,19 +70,17 @@ public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
 			case 0:
 				return "Profile";
 			case 1:
-				return "Abilities";
+				return "Combat";
 			case 2:
-				return "Equipment";
-			case 3:
 				return "Skills";
+			case 3:
+				return "Spells";
 			case 4:
 				return "Inventory";
 			case 5:
 				return "Feats";
 			case 6:
-				return "Spells";
-			case 7:
-				return "Notes";
+				return "Notes";//
 			default:
 				return "Empty Page";
 		}

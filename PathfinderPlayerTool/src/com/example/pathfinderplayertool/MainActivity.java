@@ -160,8 +160,6 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
     public boolean createCharacter(String s){
     	int ID = CharacterID.generateID(this.getFilesDir());
     	Character newChar = new Character(s, ID);
-    	Toast t = Toast.makeText(this, ID+s, Toast.LENGTH_SHORT);
-    	t.show();
     	 try
          {
     		File f = new File(this.getFilesDir(), "/chars/" + s + "-" + ID + ".ser");

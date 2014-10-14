@@ -14,6 +14,8 @@ public class Character implements Serializable{
 	private int Height;
 	private int Weight;
 	private int BaseHealth;
+	private int Initiative;
+	private int BaseAttack;
 	private String Name;
 	private String CharClass;
 	private String Race;
@@ -272,5 +274,21 @@ public class Character implements Serializable{
 
 	public void setBaseHealth(int baseHealth) {
 		BaseHealth = baseHealth;
+	}
+
+	public int getInitiative() {
+		return Initiative;
+	}
+
+	public void setInitiative(int initiative) {
+		Initiative = initiative;
+	}
+
+	public int getBaseAttack() {
+		return BaseAttack;
+	}
+
+	public void setBaseAttack(int baseAttack) {
+		BaseAttack = baseAttack;
 	}
 }

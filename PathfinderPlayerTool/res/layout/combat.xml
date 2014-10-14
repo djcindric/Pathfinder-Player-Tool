@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical" 
+        android:background="@drawable/customborder_padding_black">
+        
+        <LinearLayout
+            android:orientation="horizontal" 
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1" >
+            <TextView 
+            	android:id="@+id/bab_text"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="2" 
+            	android:text="BAB: " >
+        	</TextView>
+        	<TextView 
+            	android:id="@+id/bab_val"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="3" 
+            	android:text="@string/place_holder" >
+        	</TextView>
+        	<TextView 
+            	android:id="@+id/garbage"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="1" 
+            	android:text="" >
+        	</TextView>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:orientation="horizontal" 
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1" >
+        	<TextView 
+            	android:id="@+id/init_text"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="2" 
+            	android:text="INIT: " >
+        	</TextView>
+        	<TextView 
+            	android:id="@+id/init_val"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="3" 
+            	android:text="@string/place_holder" >
+        	</TextView>
+        	
+        	<ImageView
+                android:id="@+id/dice_init"
+	            android:layout_width="0dp"
+			    android:layout_height="match_parent"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:layout_marginTop="2dp"
+	            android:src="@drawable/ic_launcher" >
+        	</ImageView>
+        </LinearLayout>
+        
+       <LinearLayout
+            android:orientation="horizontal" 
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1" >
+            <TextView 
+            	android:id="@+id/cmb_text"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="2" 
+            	android:text="CMB: " >
+        	</TextView>
+        	
+        	<TextView 
+            	android:id="@+id/cmb_val"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="3" 
+            	android:text="@string/place_holder" >
+        	</TextView>
+        	
+        	<ImageView
+                android:id="@+id/dice_cmb"
+	            android:layout_width="0dp"
+			    android:layout_height="match_parent"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:layout_marginTop="2dp"
+	            android:src="@drawable/ic_launcher" >
+        	</ImageView>
+        	
+        </LinearLayout>
+        
+       <LinearLayout
+            android:orientation="horizontal" 
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1" 
+            >
+            <TextView 
+            	android:id="@+id/melee_text"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="2" 
+            	android:text="Melee: 1d20 + " >
+        	</TextView>
+        	
+        	<TextView 
+            	android:id="@+id/melee_val"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="3" 
+            	android:text="@string/place_holder" >
+        	</TextView>
+        	
+        	<ImageView
+                android:id="@+id/dice_melee"
+	            android:layout_width="0dp"
+			    android:layout_height="match_parent"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:layout_marginTop="2dp"
+	            android:src="@drawable/ic_launcher" >
+        	</ImageView>
+        </LinearLayout>
+        
+       <LinearLayout
+            android:orientation="horizontal" 
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1" 
+            >
+            <TextView 
+            	android:id="@+id/ranged_text"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="2" 
+            	android:text="Range: 1d20 + " >
+        	</TextView>
+        	
+        	<TextView 
+            	android:id="@+id/ranged_val"
+            	android:layout_height="match_parent"
+            	android:layout_width="0dp"
+            	android:layout_weight="3" 
+            	android:text="@string/place_holder" >
+        	</TextView>
+        	
+        	<ImageView
+                android:id="@+id/dice_ranged"
+	            android:layout_width="0dp"
+			    android:layout_height="match_parent"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:layout_marginTop="2dp"
+	            android:src="@drawable/ic_launcher" >
+        	</ImageView>
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical" 
+        android:background="@drawable/customborder_padding_black">
+        <TextView
+            android:id="@+id/main_weapon_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" 
+            android:gravity="center"
+            android:text="Main Weapon Name">
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+            
+            <TextView
+	            android:id="@+id/main_weapon_damage"
+	            android:layout_width="0dp"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2" 
+	            android:gravity="left|center_vertical"
+	            android:text="Damage: ">
+        	</TextView>
+        	
+            <TextView
+	            android:id="@+id/main_weapon_damage_value"
+	            android:layout_width="0dp"
+	            android:layout_height="match_parent"
+	            android:layout_weight="3" 
+	            android:gravity="left|center_vertical"
+	            android:text="@string/place_holder">
+        	</TextView>
+        	
+        	<ImageView
+                android:id="@+id/dice_main_weapon"
+	            android:layout_width="0dp"
+			    android:layout_height="match_parent"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:layout_marginTop="2dp"
+	            android:src="@drawable/ic_launcher" >
+        	</ImageView>
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical" 
+        android:background="@drawable/customborder_padding_black">
+        <TextView
+            android:id="@+id/off_weapon_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" 
+            android:text="Off Weapon Name"
+            android:gravity="center">
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+            
+            <TextView
+	            android:id="@+id/off_weapon_damage"
+	            android:layout_width="0dp"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2" 
+	            android:gravity="left|center_vertical"
+	            android:text="Damage: ">
+        	</TextView>
+        	
+            <TextView
+	            android:id="@+id/off_weapon_damage_value"
+	            android:layout_width="0dp"
+	            android:layout_height="match_parent"
+	            android:layout_weight="3" 
+	            android:gravity="left|center_vertical"
+	            android:text="@string/place_holder">
+        	</TextView>
+        	
+        	<ImageView
+                android:id="@+id/dice_off_weapon"
+	            android:layout_width="0dp"
+			    android:layout_height="match_parent"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:layout_marginTop="2dp"
+	            android:src="@drawable/ic_launcher" >
+        	</ImageView>
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</LinearLayout>

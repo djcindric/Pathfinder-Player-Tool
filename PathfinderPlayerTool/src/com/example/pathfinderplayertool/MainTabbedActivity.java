@@ -81,11 +81,8 @@ public class MainTabbedActivity extends FragmentActivity {
 		if (id == R.id.load_profile) {
 			mViewPager.setCurrentItem(MainTabbedPagerAdapter.PROFILE, true);
 		}
-		if (id == R.id.load_abilities) {
-			mViewPager.setCurrentItem(MainTabbedPagerAdapter.ABILITY, true);
-		}
-		if (id == R.id.load_equipment) {
-			mViewPager.setCurrentItem(MainTabbedPagerAdapter.EQUIPMENT, true);
+		if(id == R.id.load_combat){
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.COMBAT, true);
 		}
 		if (id == R.id.load_skills) {
 			mViewPager.setCurrentItem(MainTabbedPagerAdapter.SKILLS, true);
@@ -97,7 +94,7 @@ public class MainTabbedActivity extends FragmentActivity {
 			mViewPager.setCurrentItem(MainTabbedPagerAdapter.FEATS, true);
 		}
 		if (id == R.id.load_spells) {
-			mViewPager.setCurrentItem(MainTabbedPagerAdapter.SPELLS, true);
+			mViewPager.setCurrentItem(MainTabbedPagerAdapter.SPELLBOOK, true);
 		}
 		if (id == R.id.load_notes) {
 			mViewPager.setCurrentItem(MainTabbedPagerAdapter.NOTES, true);

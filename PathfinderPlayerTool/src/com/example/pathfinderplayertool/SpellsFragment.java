@@ -84,17 +84,17 @@ public class SpellsFragment extends Fragment {
     	List<String> test9 = new ArrayList<String>();
     	List<String> test10 = new ArrayList<String>();
         
-    	test1.add("Fireball");
-    	test1.add("Ice Blast");
-    	test2.add("Death");
-    	test3.add("Nasus");
-    	test4.add("Stacks");
-    	test5.add("op");
-    	test6.add("stack em all");
-    	test7.add("dog porn");
-    	test8.add("for dave");
-    	test9.add("woof woof");
-    	test10.add("bow wow");
+    	test1.add("Light");
+    	test1.add("Guidance");
+    	test2.add("Bless");
+    	test3.add("Aid");
+    	test4.add("Contagion");
+    	test5.add("Dismissal");
+    	test6.add("Atonement");
+    	test7.add("Banishment");
+    	test8.add("Resurrection");
+    	test9.add("Fire Storm");
+    	test10.add("Heal, Mass");
     	
     	listDataChild.put(listDataHeader.get(0), test1);
     	listDataChild.put(listDataHeader.get(1), test2);

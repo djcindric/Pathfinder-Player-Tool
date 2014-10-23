@@ -13,6 +13,12 @@
         android:showAsAction="always"
         android:title="Save Character"
         android:icon="@drawable/save_character_icon"/>
+    <item
+        android:id="@+id/transfer_character" 
+        android:title="@string/transfer_character" 
+        android:orderInCategory="101" 
+        android:showAsAction="always"
+        android:icon="@drawable/transfer_character_icon"></item>
     <item 
         android:id="@+id/load_profile" 
         android:title="@string/load_profile" 

@@ -1,19 +1,31 @@
 package com.example.pathfinderplayertool;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothServerSocket;
+import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,17 +36,37 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity  implements NewCharacterDialogFragment.NoticeDialogListener{
-	final ArrayList<String> list = new ArrayList<String>();
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-	public ArrayAdapter<String> adapter = null;
 	public static int currentapiVersion = android.os.Build.VERSION.SDK_INT;
 	public static File fileDir;
+	
+	final ArrayList<String> list = new ArrayList<String>();
+	public ArrayAdapter<String> adapter = null;
+	public BluetoothAdapter mBluetoothAdapter;
+	final Handler mHandler = new Handler();
+	public int REQUEST_ENABLE_BT = 1337;
+	public ArrayAdapter<String> bluetoothArrayAdapter;
+	public boolean shouldListen = true;
+	public UUID MY_UUID;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		MY_UUID = UUID.fromString("543c05d0-5a54-11e4-8ed6-0800200c9a66");
+		
+		//Check if BlueTooth is enabled. If it is, stand by to accept incoming transfers
+		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    	if (mBluetoothAdapter == null) {
+    	    // Device does not support Bluetooth. Must be pretty old. Sucks for them!
+    	}
+    	else{
+    		if (mBluetoothAdapter.isEnabled() && shouldListen) {
+        	    beginListeningForTransfers();
+        	}
+    	}
+    	
 		//Change the action bar title
 		ActionBar ab = getActionBar();
 		ab.setTitle("Characters");
@@ -129,8 +161,6 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 	
 	//Create a new character. Add it to the list
 	public void newCharacter(String s){
-//        list.add(s);
-//        adapter.notifyDataSetChanged();
         createCharacter(s);
 	}
 	
@@ -207,4 +237,107 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
     	Toast t = Toast.makeText(this, "TODO:Start Tutorial", Toast.LENGTH_SHORT);
     	t.show();
     }
+    
+    public void beginListeningForTransfers(){
+    	final Runnable finishedTransfer = new Runnable() {
+	        public void run() {
+	        	transferComplete();
+	        }
+	    };
+	    
+	    Thread t = new Thread() {
+            public void run() {
+            	final BluetoothServerSocket mmServerSocket;
+                BluetoothServerSocket tmp = null;
+                try {
+                    tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord("Pathfinder Player Tool", MY_UUID);
+                } catch (IOException e) { }
+                mmServerSocket = tmp;
+                
+                BluetoothSocket socket = null;
+                // Keep listening until exception occurs or a socket is returned
+                while (true) {
+                    try {
+                        socket = mmServerSocket.accept();
+                    } catch (IOException e) {
+                        break;
+                    }
+                    if (socket != null) {
+                    	manageConnectedSocket(socket);
+                    	mHandler.post(finishedTransfer);
+                    }
+                }
+            }
+        };
+        t.start();
+    }
+    
+    public void transferComplete(){
+    	Toast t = Toast.makeText(this, "Character transfer completed", Toast.LENGTH_SHORT);
+    	t.show();
+    }
+    
+    //Receive file from other device
+    public void manageConnectedSocket(final BluetoothSocket mmSocket) {
+    	final InputStream mmInStream;
+	    final OutputStream mmOutStream;
+        InputStream tmpIn = null;
+        OutputStream tmpOut = null;
+        
+	   	 try {
+	   		tmpIn = mmSocket.getInputStream();
+            tmpOut = mmSocket.getOutputStream();
+	     } catch (IOException e) {e.printStackTrace();}
+	   	 
+	   	mmInStream = tmpIn;
+        mmOutStream = tmpOut;
+		
+		Thread t = new Thread() {
+            public void run() {
+            	
+    	        
+    	        try {
+					try {
+	    		        ObjectInputStream in = new ObjectInputStream(mmInStream);
+						Character tempChar;
+						tempChar = (Character) in.readObject();
+						in.close();
+						int ID = CharacterID.generateID(fileDir);
+						File file = new File(fileDir, "/chars/" + tempChar.getName() + "-" + ID + ".ser");
+			            FileOutputStream fileOut = new FileOutputStream(file);
+			            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			            out.writeObject(tempChar);
+			            out.close();
+			            fileOut.close();
+			            
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					Message msg = Message.obtain();
+					msg.arg1 = 4004;
+					tempHandler.sendMessage(msg);
+					
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+            }
+        };
+        t.start();
+	}
+    
+    private Handler tempHandler = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg)
+        {
+            super.handleMessage(msg);
+            if(msg.arg1 == 4004){
+            	transferComplete();	
+            	recreate();
+            }
+        }
+
+    };
 }

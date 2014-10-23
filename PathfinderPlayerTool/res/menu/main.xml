@@ -4,20 +4,20 @@
 
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="101"
+        android:orderInCategory="110"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
     <item 
         android:id="@+id/new_character" 
         android:title="@string/new_character" 
-        android:orderInCategory="99" 
+        android:orderInCategory="101" 
         android:showAsAction="always"
         android:icon="@drawable/add_icon"></item>
     <item
         android:id="@+id/rate_application" 
         android:title="@string/rate_application" 
-        android:orderInCategory="100" 
-        android:showAsAction="always"
+        android:orderInCategory="102" 
+        android:showAsAction="never"
         android:icon="@drawable/rate_icon"></item>
-
+    
 </menu>

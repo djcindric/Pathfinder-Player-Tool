@@ -39,5 +39,6 @@
     <string name="base_attack">BAB</string>
     <string name="cmb">CMB</string>
     <string name="move">Move</string>
+    <string name="transfer_character">Transfer Character</string>
 
 </resources>

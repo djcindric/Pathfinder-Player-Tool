@@ -5,174 +5,427 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-	
-	<!--Character Name-->
-    <TextView 
-        android:id="@+id/charName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"
-        android:clickable="true"
-        android:onClick="clickedName"
-        android:gravity="center"
-        android:text="@string/place_holder"
-        android:typeface="serif"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:background="@drawable/customborder_padding_black" />
-    
-    <!--Layout containing lvl/xp/next and their values-->
-	<LinearLayout
-	       android:id="@+id/charHorizLinearSub1"
-	       android:layout_width="match_parent"
-	       android:layout_height="wrap_content"
-	       android:baselineAligned="false"
-	       android:orientation="horizontal" 
-	       android:background="@drawable/customborder_padding_black"
-	       android:layout_marginBottom="2dp">
 
-		   <LinearLayout
-		       android:id="@+id/charLinear1"
-		       android:layout_width="0dp"
-		       android:layout_height="match_parent"
-		       android:layout_weight="1"
-		       android:orientation="vertical" 
-		       android:background="@drawable/customborder_padding_black"
-		       android:layout_marginRight="5dp">
-		       
-		       	<TextView
-		       	    android:id="@+id/charLevel"
-		       	    android:layout_height="wrap_content"
-		       	    android:layout_width="match_parent"
-		       	    android:clickable="true"
-		       	    android:gravity="center"
-		       	    android:onClick="clickedLevel"
-		       	    android:text="@string/player_level" />
-		       	
-		       	<TextView
-		       	    android:id="@+id/charLevelValue"
-		       	    android:layout_height="wrap_content"
-		       	    android:layout_width="match_parent"
-		       	    android:clickable="true"
-		       	    android:gravity="center"
-		       	    android:onClick="clickedLevel"
-		       	    android:text="" />
-		
-		   </LinearLayout>
-		   
-		   <LinearLayout
-		       android:id="@+id/charLinear2"
-		       android:layout_width="0dp"
-		       android:layout_height="wrap_content"
-		       android:layout_weight="2"
-		       android:orientation="vertical" 
-		       android:background="@drawable/customborder_padding_black"
-		       android:layout_marginRight="5dp">
-		       <TextView
-		       		android:id="@+id/charExperience"
-		     	    android:layout_height="wrap_content"
-		       	    android:layout_width="match_parent"
-		     	    android:clickable="true"
-		     	    android:gravity="center"
-		     	    android:onClick="clickedExperience"
-		     	    android:text="@string/player_experience" />
-		       <TextView
-		       	    android:id="@+id/charExperienceValue"
-		       	    android:layout_height="wrap_content"
-		       	    android:layout_width="match_parent"
-		       	    android:clickable="true"
-		       	    android:gravity="center"
-		       	    android:onClick="clickedExperience"
-		       	    android:text="" />
-		      
-		   </LinearLayout>
-		   
-		   <LinearLayout
-		       android:id="@+id/charLinear3"
-		       android:layout_width="0dp"
-		       android:layout_height="wrap_content"
-		       android:layout_weight="1"
-		       android:orientation="vertical" 
-		       android:background="@drawable/customborder_padding_black"
-		       android:layout_marginRight="5dp">
-		       <TextView
-		       	    android:id="@+id/charNext"
-		       	    android:layout_height="wrap_content"
-		       	    android:layout_width="match_parent"
-		       	    android:clickable="true"
-		       	    android:gravity="center"
-		       	    android:onClick="clickedNext"
-		       	    android:text="@string/player_next" />
-		       <TextView
-		       	    android:id="@+id/charNextValue"
-		       	    android:layout_height="wrap_content"
-		       	    android:layout_width="match_parent"
-		       	    android:clickable="true"
-		       	    android:gravity="center"
-		       	    android:onClick="clickedNext"
-		       	    android:text="" />
-		      
-		   </LinearLayout>
-		   <LinearLayout
-		       android:id="@+id/charLinear4"
-		       android:layout_width="0dp"
-		       android:layout_height="wrap_content"
-		       android:layout_weight="1"
-		       android:orientation="vertical" 
-		       android:background="@drawable/customborder_padding_black">
-		      <TextView
-		       	    android:id="@+id/charLevelUp"
-		       	    android:layout_height="wrap_content"
-		       	    android:layout_width="match_parent"
-		       	    android:clickable="true"
-		       	    android:gravity="center"
-		       	    android:onClick="clickedLevelUp"
-		       	    android:text="@string/player_level_up" />
-		      
-		   </LinearLayout>		
-	</LinearLayout>
-
-	
-	<!--Layout containing class-->
     <LinearLayout
-        android:id="@+id/charVertLinearSub2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:orientation="horizontal"
-        android:background="@drawable/customborder_padding_black"
-        android:layout_marginBottom="3dp">
-		   <TextView
-		       	    android:id="@+id/charClass"
-		       	    android:layout_width="0dp"
-		       	    android:layout_height="match_parent"
-		       	    android:layout_weight="1"
-		       	    android:gravity="center"
-		       	    android:text="@string/player_class" />
-		   <TextView
-		       	    android:id="@+id/charClassValue"
-		       	    android:layout_width="0dp"
-		       	    android:layout_height="match_parent"
-		       	    android:layout_weight="1"
-		       	    android:gravity="center"
-		       	    android:text="" />
+		android:layout_height="0dp"
+		android:layout_weight="2"
+        android:orientation="horizontal" >
 
+        <ImageView
+            android:id="@+id/picture_view"
+            android:layout_width="0dp"
+		    android:layout_height="match_parent"
+		    android:layout_weight="4"
+		    android:layout_marginTop="2dp"
+		    android:layout_marginBottom="2dp"
+		    android:layout_marginLeft="2dp"
+		    android:layout_marginRight="2dp"
+			android:onClick="changePhoto"
+            android:src="@drawable/dude" 
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+		    android:layout_height="match_parent"
+		    android:layout_weight="2"
+            android:orientation="vertical" >
+            <TextView
+	            android:id="@+id/str_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewStrength"
+	            android:text="@string/strength" />
+            <TextView
+	            android:id="@+id/dex_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewDexterity"
+	            android:text="@string/dexterity" />
+            <TextView
+	            android:id="@+id/con_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewConstitution"
+	            android:text="@string/constitution" />
+            <TextView
+	            android:id="@+id/int_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewIntelligence"
+	            android:text="@string/intelligence" />
+            <TextView
+	            android:id="@+id/wis_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewWisdom"
+	            android:text="@string/wisdom" />
+            <TextView
+	            android:id="@+id/cha_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:clickable="true"
+			    android:onClick="viewCharisma"
+	            android:text="@string/charisma" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="0dp"
+		    android:layout_height="match_parent"
+		    android:layout_weight="1"
+            android:orientation="vertical" >
+            <TextView
+	            android:id="@+id/str_value_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/place_holder" />
+            <TextView
+	            android:id="@+id/dex_value_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/place_holder" />
+            <TextView
+	            android:id="@+id/con_value_text"
+	           android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/place_holder" />
+            <TextView
+	            android:id="@+id/int_value_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/place_holder" />
+            <TextView
+	            android:id="@+id/wis_value_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/place_holder" />
+            <TextView
+	            android:id="@+id/cha_value_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/place_holder" />
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="0dp"
+		    android:layout_height="match_parent"
+		    android:layout_weight="1"
+            android:orientation="vertical" >
+            
+            <ImageView
+	            android:id="@+id/dice_str"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:onClick="rollStrength"
+	            android:src="@drawable/ic_launcher" />
+            <ImageView
+                android:id="@+id/dice_dex"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:onClick="rollDexterity"
+	            android:src="@drawable/ic_launcher" />
+            <ImageView
+                 android:id="@+id/dice_con"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:onClick="rollConstitution"
+	            android:src="@drawable/ic_launcher" />
+            <ImageView
+                 android:id="@+id/dice_int"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:onClick="rollIntelligence"
+	            android:src="@drawable/ic_launcher" />
+            <ImageView
+                 android:id="@+id/dice_wis"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:onClick="rollWisdom"
+	            android:src="@drawable/ic_launcher" />
+            <ImageView
+                 android:id="@+id/dice_cha"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+			    android:onClick="rollCharisma"
+	            android:src="@drawable/ic_launcher" />
+        </LinearLayout>
+ 
     </LinearLayout>
 
-    <!--Layout containing info-->
     <LinearLayout
-        android:id="@+id/charVertLinearSub3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
+		android:layout_height="0dp"
+		android:layout_weight="1"
         android:orientation="horizontal"
-        android:background="@drawable/customborder_padding_black"
-        android:layout_marginBottom="3dp">
-		   <TextView
-		       	    android:id="@+id/charInfo"
-		       	    android:layout_width="0dp"
-		       	    android:layout_height="match_parent"
-		       	    android:layout_weight="1"
-		       	    android:gravity="center"
-		       	    android:text="@string/player_info" />
+        android:layout_marginTop="2dp"
+	    android:layout_marginBottom="2dp"
+	    android:layout_marginLeft="2dp"
+	    android:layout_marginRight="2dp"
+	    android:background="@drawable/longborder" >
+        <TextView
+            android:id="@+id/inf_text"
+            android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:gravity="center"
+            android:text="Character Info" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="3"
+        android:orientation="horizontal" >
+        
+        <LinearLayout
+	       android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+	        android:orientation="vertical">
+            
+            <TextView
+	            android:id="@+id/hp_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/health" />
+            <TextView
+	            android:id="@+id/ac_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/armor_class" />
+            <TextView
+	            android:id="@+id/flat_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/flatfooted" />
+            <TextView
+	            android:id="@+id/touch_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/touch" />
+            <TextView
+	            android:id="@+id/saves_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/saves_cmd" />
+            
+    	</LinearLayout>
+    	
+    	<LinearLayout
+	        android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+	        android:orientation="vertical">
+            <TextView
+	            android:id="@+id/init_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/init" />
+            <TextView
+	            android:id="@+id/bab_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/base_attack" />
+            <TextView
+	            android:id="@+id/cmb_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/cmb" />
+            <TextView
+	            android:id="@+id/move_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="@string/move" />
+            <TextView
+	            android:id="@+id/nothing_text"
+	            android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:background="#000"
+			    android:layout_marginTop="2dp"
+			    android:layout_marginBottom="2dp"
+			    android:layout_marginLeft="2dp"
+			    android:layout_marginRight="2dp"
+	            android:text="" />
+    	</LinearLayout>
+        
     </LinearLayout>
 
 </LinearLayout>

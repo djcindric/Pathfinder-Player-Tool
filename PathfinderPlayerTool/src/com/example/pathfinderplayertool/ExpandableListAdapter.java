@@ -88,6 +88,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter{
 		}
 		
 		TextView txtListChild = (TextView) convertView.findViewById(R.id.spell_name);
+		txtListChild.setTypeface(null, Typeface.BOLD);
 		txtListChild.setText(childText);
 		
 		return convertView;

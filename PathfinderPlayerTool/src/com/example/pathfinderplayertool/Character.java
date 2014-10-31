@@ -14,8 +14,9 @@ public class Character implements Serializable{
 	private int Height;
 	private int Weight;
 	private int BaseHealth;
-	private int Initiative;
-	private int BaseAttack;
+	private int Initiative = 10;
+	private int BaseAttack = 20;
+	private int dailySpellLimit = 0;
 	private String Name;
 	private String CharClass;
 	private String Race;
@@ -30,9 +31,11 @@ public class Character implements Serializable{
 	private String Eyes;
 	private ArrayList<Weapon> Weapons;
 	private ArrayList<Armor> Armors;
-	private ArrayList<Spell> Spells;
+	private ArrayList<Spell> Spells = new ArrayList<Spell>();
 	private ArrayList<Feat> Feats;
 	private Ability Abilities;
+	private Weapon MainHand = new Weapon();
+	private Weapon OffHand = new Weapon();
 	private Skill Skills = new Skill();
 	
 	public Character(){
@@ -290,5 +293,29 @@ public class Character implements Serializable{
 
 	public void setBaseAttack(int baseAttack) {
 		BaseAttack = baseAttack;
+	}
+
+	public Weapon getMainHand() {
+		return MainHand;
+	}
+
+	public void setMainHand(Weapon mainHand) {
+		MainHand = mainHand;
+	}
+
+	public Weapon getOffHand() {
+		return OffHand;
+	}
+
+	public void setOffHand(Weapon offHand) {
+		OffHand = offHand;
+	}
+
+	public int getDailySpellLimit() {
+		return dailySpellLimit;
+	}
+
+	public void setDailySpellLimit(int dailySpellLimit) {
+		this.dailySpellLimit = dailySpellLimit;
 	}
 }

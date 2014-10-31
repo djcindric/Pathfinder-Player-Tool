@@ -1,25 +1,28 @@
 package com.example.pathfinderplayertool;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class SpellsFragment extends Fragment {
 	public String charName = "";
-	public Character thisCharacter = null;
+//	public Character thisCharacter = null;
 	public TextView tv = null;
 	
 	public ExpandableListAdapter listAdapter;
@@ -35,23 +38,83 @@ public class SpellsFragment extends Fragment {
         ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.spells, container, false);
         
-        try
-        {
-        	File file = new File(MainActivity.fileDir, "/chars/" + charName + ".ser");
-	        FileInputStream fileIn = new FileInputStream(file);
-	        ObjectInputStream in = new ObjectInputStream(fileIn);
-	        thisCharacter = (Character) in.readObject();
-	        in.close();
-	        fileIn.close();
-        }catch(IOException i){i.printStackTrace();}
-        catch(ClassNotFoundException c){c.printStackTrace();}
+        tv = (TextView) rootView.findViewById(R.id.dailyValue);
+        tv.setText("" + MainTabbedActivity.thisCharacter.getDailySpellLimit());
         
+        Button mButton = (Button) rootView.findViewById(R.id.addSpell);
+        mButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v){
+        		AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle("Set Target Title & Description");
+                dialog.setMessage("Title: ");
+                
+            	LinearLayout layout = new LinearLayout(getActivity());
+            	layout.setOrientation(LinearLayout.VERTICAL);
+
+            	final EditText nameBox = new EditText(getActivity());
+            	nameBox.setHint("Name");
+            	layout.addView(nameBox);
+
+            	final EditText levelBox = new EditText(getActivity());
+            	levelBox.setHint("Level");
+            	levelBox.setInputType(InputType.TYPE_CLASS_NUMBER);
+            	layout.addView(levelBox);
+
+            	dialog.setView(layout);
+            	new AlertDialog.Builder(getActivity()).setTitle("Add Spell").setMessage("Enter the name and level of the spell")
+        		.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+        			public void onClick(DialogInterface dialog, int which) { 
+        		    	Spell newSpell = new Spell(nameBox.getText().toString(), Integer.parseInt(levelBox.getText().toString()));
+        		    	MainTabbedActivity.thisCharacter.addSpell(newSpell);
+        		    	listDataChild.get(listDataHeader.get(newSpell.getLevel())).add(newSpell.getName());
+                		listAdapter.notifyDataSetChanged();
+        			}
+        			})
+        		.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        			public void onClick(DialogInterface dialog, int which) { 
+        				
+        			}
+        			}).setView(layout).show();    
+            	
+        	}
+        });
         return rootView;
     }
     
     public void onViewCreated(View v, Bundle b){
     	super.onViewCreated(v,b);
     	expListView = (ExpandableListView) this.getActivity().findViewById(R.id.spellsExpandableList);
+    	
+    	expListView.setOnChildClickListener(new OnChildClickListener() {
+    		@Override
+    		public boolean onChildClick(ExpandableListView parent, View v, final int groupPosition, final int childPosition, long id) {
+    			new AlertDialog.Builder(parent.getContext()).setTitle("Remove spell").setMessage("Are you sure you want to remove this spell?")
+    			.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+    				public void onClick(DialogInterface dialog, int which) { 
+    					String spellName = listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition);
+    	    			ArrayList<Spell> spells = MainTabbedActivity.thisCharacter.getSpells();
+    	    			Spell toDelete = null;
+    	    			for(Spell s : spells){
+    	    				if(s.getName().equals(spellName)){
+    	    					toDelete = s;
+    	    				}
+    	    			
+    	    			}
+    	    			MainTabbedActivity.thisCharacter.removeSpell(toDelete);
+    	    			
+    					listDataChild.get(listDataHeader.get(groupPosition)).remove(childPosition);
+    	        		listAdapter.notifyDataSetChanged();
+    				}
+    				})
+    			.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+    				public void onClick(DialogInterface dialog, int which) { 
+    				}
+    				}).setIcon(android.R.drawable.ic_dialog_alert).show();         
+    			
+    			return false;
+    		}
+    	});
+    	
         prepareListData();
         listAdapter = new ExpandableListAdapter(this.getActivity().getBaseContext(), listDataHeader, listDataChild);
     	expListView.setAdapter(listAdapter);
@@ -73,39 +136,84 @@ public class SpellsFragment extends Fragment {
     	listDataHeader.add("9");
     	
     	
-    	List<String> test1 = new ArrayList<String>();
-    	List<String> test2 = new ArrayList<String>();
-    	List<String> test3 = new ArrayList<String>();
-    	List<String> test4 = new ArrayList<String>();
-    	List<String> test5 = new ArrayList<String>();
-    	List<String> test6 = new ArrayList<String>();
-    	List<String> test7 = new ArrayList<String>();
-    	List<String> test8 = new ArrayList<String>();
-    	List<String> test9 = new ArrayList<String>();
-    	List<String> test10 = new ArrayList<String>();
+    	List<String> spells0 = new ArrayList<String>();
+    	List<String> spells1 = new ArrayList<String>();
+    	List<String> spells2 = new ArrayList<String>();
+    	List<String> spells3 = new ArrayList<String>();
+    	List<String> spells4 = new ArrayList<String>();
+    	List<String> spells5 = new ArrayList<String>();
+    	List<String> spells6 = new ArrayList<String>();
+    	List<String> spells7 = new ArrayList<String>();
+    	List<String> spells8 = new ArrayList<String>();
+    	List<String> spells9 = new ArrayList<String>();
+    	
+    	ArrayList<Spell> spells = MainTabbedActivity.thisCharacter.getSpells();
+    	
+    	for(Spell s : spells){
+    		int spellLevel = s.getLevel();
+    		switch(spellLevel){
+    			case 0:
+    				spells0.add(s.getName());
+    				break;
+    				
+    			case 1:
+    				spells1.add(s.getName());
+    				break;
+    				
+    			case 2:
+    				spells2.add(s.getName());
+    				break;
+    				
+    			case 3:
+    				spells3.add(s.getName());
+    				break;
+    				
+    			case 4:
+    				spells4.add(s.getName());
+    				break;
+    				
+    			case 5:
+    				spells5.add(s.getName());
+    				break;
+    				
+    			case 6:
+    				spells6.add(s.getName());
+    				break;
+    				
+    			case 7:
+    				spells7.add(s.getName());
+    				break;
+    				
+    			case 8:
+    				spells8.add(s.getName());
+    				break;
+    				
+    			case 9:
+    				spells9.add(s.getName());
+    				break;
+    		}
+    	}
         
-    	test1.add("Light");
-    	test1.add("Guidance");
-    	test2.add("Bless");
-    	test3.add("Aid");
-    	test4.add("Contagion");
-    	test5.add("Dismissal");
-    	test6.add("Atonement");
-    	test7.add("Banishment");
-    	test8.add("Resurrection");
-    	test9.add("Fire Storm");
-    	test10.add("Heal, Mass");
+//    	spells0.add("Light");
+//    	spells0.add("Guidance");
+//    	spells1.add("Bless");
+//    	spells2.add("Aid");
+//    	spells3.add("Contagion");
+//    	spells4.add("Dismissal");
+//    	spells5.add("Atonement");
+//    	spells6.add("Banishment");
+//    	spells7.add("Resurrection");
+//    	spells8.add("Fire Storm");
     	
-    	listDataChild.put(listDataHeader.get(0), test1);
-    	listDataChild.put(listDataHeader.get(1), test2);
-    	listDataChild.put(listDataHeader.get(2), test3);
-    	listDataChild.put(listDataHeader.get(3), test4);
-    	listDataChild.put(listDataHeader.get(4), test5);
-    	listDataChild.put(listDataHeader.get(5), test6);
-    	listDataChild.put(listDataHeader.get(6), test7);
-    	listDataChild.put(listDataHeader.get(7), test8);
-    	listDataChild.put(listDataHeader.get(8), test9);
-    	listDataChild.put(listDataHeader.get(9), test10);
-    	
+    	listDataChild.put(listDataHeader.get(0), spells0);
+    	listDataChild.put(listDataHeader.get(1), spells1);
+    	listDataChild.put(listDataHeader.get(2), spells2);
+    	listDataChild.put(listDataHeader.get(3), spells3);
+    	listDataChild.put(listDataHeader.get(4), spells4);
+    	listDataChild.put(listDataHeader.get(5), spells5);
+    	listDataChild.put(listDataHeader.get(6), spells6);
+    	listDataChild.put(listDataHeader.get(7), spells7);
+    	listDataChild.put(listDataHeader.get(8), spells8);
+    	listDataChild.put(listDataHeader.get(9), spells9);
     }
 }

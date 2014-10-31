@@ -4,19 +4,41 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Weapon implements Serializable{
-	private String WeaponName;
-	private ArrayList<String> Attributes;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8318069707491895802L;
+	private String WeaponName = "Unnamed Weapon";
+	private ArrayList<String> Attributes = new ArrayList<String>();
+	private String damage = "1d12";
 	
-	public Weapon(String name, ArrayList<String> attributes){
-		WeaponName = name;
-		Attributes = attributes;
+	public Weapon(){
+		
 	}
 	
-	public String returnName(){
+	public Weapon(String name, ArrayList<String> attributes, String damage){
+		WeaponName = name;
+		Attributes = attributes;
+		this.damage = damage;
+	}
+	
+	public void setName(String weaponName){
+		this.WeaponName = weaponName;
+	}
+	
+	public String getName(){
 		return WeaponName;
 	}
 	
-	public ArrayList<String> returnAttributes(){
+	public ArrayList<String> getAttributes(){
 		return Attributes;
+	}
+	
+	public String getDamage() {
+		return damage;
+	}
+	
+	public void setDamage(String damage) {
+		this.damage = damage;
 	}
 }

@@ -37,9 +37,45 @@ public class SkillsFragment extends Fragment {
         }catch(IOException i){i.printStackTrace();}
         catch(ClassNotFoundException c){c.printStackTrace();}
         
+        tv = (TextView) rootView.findViewById(R.id.acrobaticsValue);
+        tv.setText("" + (( thisCharacter.getSkills().getDexterity() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.appraiseValue);
+        tv.setText("" + (( thisCharacter.getSkills().getIntelligence() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.bluffValue);
+        tv.setText("" + (( thisCharacter.getSkills().getCharisma() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.climbValue);
+        tv.setText("" + (( thisCharacter.getSkills().getStrength() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.craftValue);
+        tv.setText("" + (( thisCharacter.getSkills().getIntelligence() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.diplomacyValue);
+        tv.setText("" + (( thisCharacter.getSkills().getCharisma() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.disableValue);
+        tv.setText("" + (( thisCharacter.getSkills().getDexterity() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.flyValue);
+        tv.setText("" + (( thisCharacter.getSkills().getDexterity() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.healValue);
+        tv.setText("" + (( thisCharacter.getSkills().getWisdom() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.intimidateValue);
+        tv.setText("" + (( thisCharacter.getSkills().getCharisma() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.stealthValue);
+        tv.setText("" + (( thisCharacter.getSkills().getDexterity() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.swimValue);
+        tv.setText("" + (( thisCharacter.getSkills().getStrength() - 10 ) / 2) );
+        
+        tv = (TextView) rootView.findViewById(R.id.umdValue);
+        tv.setText("" + (( thisCharacter.getSkills().getCharisma() - 10 ) / 2) );
+        
         return rootView;
     }
-    
-    
-    
 }

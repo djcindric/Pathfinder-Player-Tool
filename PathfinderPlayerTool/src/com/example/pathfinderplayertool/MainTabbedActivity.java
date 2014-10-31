@@ -1,6 +1,5 @@
 package com.example.pathfinderplayertool;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,7 +8,6 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.nio.charset.Charset;
 import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
@@ -26,11 +24,15 @@ import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +41,7 @@ public class MainTabbedActivity extends FragmentActivity {
     MainTabbedPagerAdapter mMainTabbedPagerAdapter;
     ViewPager mViewPager;
     public static String message = "";
-    Character thisCharacter = null;
+    public static Character thisCharacter = null;
     public BluetoothAdapter mBluetoothAdapter;
 	final Handler mHandler = new Handler();
 	public int REQUEST_ENABLE_BT = 1337;
@@ -60,7 +62,10 @@ public class MainTabbedActivity extends FragmentActivity {
 		mMainTabbedPagerAdapter = new MainTabbedPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mMainTabbedPagerAdapter);
-
+        
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        
         //Retrieve the character object by the name/ID
         try
         {
@@ -79,6 +84,7 @@ public class MainTabbedActivity extends FragmentActivity {
 		ActionBar ab = getActionBar();
 		ab.setTitle(thisCharacter.getName());
 		ab.setSubtitle("Pathfinder Player Tool");
+	
     }
     
     @Override
@@ -124,48 +130,6 @@ public class MainTabbedActivity extends FragmentActivity {
 		return super.onOptionsItemSelected(item);
 	}
     
-//    public void clickedName(final View v){
-//    	
-//    }
-//    
-//    public void clickedLevel(final View v){
-//    	
-//    }
-//    
-//    public void clickedExperience(View v){
-//    	final EditText input = new EditText(this);
-//    	new AlertDialog.Builder(this)
-//        .setTitle("Add Experience")
-//        .setMessage("Enter amount of experience to add")
-//        .setView(input)
-//        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int whichButton) {
-//                Editable value = input.getText(); 
-//                thisCharacter.setExperience(thisCharacter.getExperience() + Integer.parseInt(value.toString()));
-//                TextView tv = (TextView) findViewById(R.id.charExperienceValue);
-//                tv.setText("" + thisCharacter.getExperience());
-//            }
-//        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int whichButton) {
-//            }
-//        }).show();
-//    }
-//    
-//    public void clickedNext(View v){
-//    	Toast t = Toast.makeText(this, "Edit Next", Toast.LENGTH_SHORT);
-//    	t.show();
-//    }
-//    
-//    public void clickedLevelUp(View v){
-//    	//Increment players level and display the new change
-//    	thisCharacter.setLevel(thisCharacter.getLevel()+1);
-//        TextView tv = (TextView) findViewById(R.id.charLevelValue);
-//        tv.setText("" + thisCharacter.getLevel()); 
-//        
-//        Toast t = Toast.makeText(this, "Level Up", Toast.LENGTH_SHORT);
-//    	t.show();
-//    }
-    
     public void saveCharacter(){
     	 try
          {
@@ -182,6 +146,7 @@ public class MainTabbedActivity extends FragmentActivity {
          {
              i.printStackTrace();
          }
+    	 mViewPager.setAdapter(mMainTabbedPagerAdapter);
     }
     
     public void viewStrength(View v){
@@ -305,8 +270,10 @@ public class MainTabbedActivity extends FragmentActivity {
     }
     
     public void changePhoto(View v){
-    	Toast t = Toast.makeText(this, "Change your photo", Toast.LENGTH_SHORT);
-    	t.show();
+    	ImageView iv = (ImageView) findViewById(R.id.picture_view);
+    	
+    	Toast t = Toast.makeText(this, "Change your photo\n" + iv.getHeight() + "\n" + iv.getWidth(), Toast.LENGTH_SHORT);
+    	t.show(); 
     }
     
     public void rollStrength(View v){
@@ -356,6 +323,112 @@ public class MainTabbedActivity extends FragmentActivity {
     	
     }
     
+    public void rollInit(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	Toast t = Toast.makeText(this, thisCharacter.getInitiative() + " + " + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void rollCmb(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	TextView tv = (TextView) findViewById(R.id.cmb_val);
+    	Toast t = Toast.makeText(this,  tv.getText() + " + " + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void rollMelee(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	TextView tv = (TextView) findViewById(R.id.melee_val);
+    	Toast t = Toast.makeText(this,  tv.getText() + " + " + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void rollRanged(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	TextView tv = (TextView) findViewById(R.id.ranged_val);
+    	Toast t = Toast.makeText(this,  tv.getText() + " + " + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void rollMain(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	TextView tv = (TextView) findViewById(R.id.main_weapon_damage_value);
+    	Toast t = Toast.makeText(this,  tv.getText() + " + " + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void rollOff(View v){
+    	Random r = new Random();
+    	int ran = r.nextInt(21 - 1) + 1;
+    	TextView tv = (TextView) findViewById(R.id.off_weapon_damage_value);
+    	Toast t = Toast.makeText(this,  tv.getText() + " + " + ran, Toast.LENGTH_SHORT);
+    	t.show();
+    	
+    }
+    
+    public void incrementDaily(View v){
+    	TextView tv = (TextView) findViewById(R.id.dailyValue);
+    	int currVal = Integer.parseInt(tv.getText().toString());
+    	tv.setText("" + (currVal+1));
+    	thisCharacter.setDailySpellLimit(currVal+1);
+    }
+    
+    public void decrementDaily(View v){
+    	TextView tv = (TextView) findViewById(R.id.dailyValue);
+    	int currVal = Integer.parseInt(tv.getText().toString());
+    	tv.setText("" + (currVal-1));
+    	thisCharacter.setDailySpellLimit(currVal-1);
+    }
+    
+    public void resetDaily(View v){
+    	TextView tv = (TextView) findViewById(R.id.dailyValue);
+    	tv.setText("0");
+    	thisCharacter.setDailySpellLimit(0);
+    }
+    
+    public void addSpell(View v){
+    	AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Set Target Title & Description");
+        dialog.setMessage("Title: ");
+        
+    	LinearLayout layout = new LinearLayout(this);
+    	layout.setOrientation(LinearLayout.VERTICAL);
+
+    	final EditText nameBox = new EditText(this);
+    	nameBox.setHint("Name");
+    	layout.addView(nameBox);
+
+    	final EditText levelBox = new EditText(this);
+    	levelBox.setHint("Level");
+    	levelBox.setInputType(InputType.TYPE_CLASS_NUMBER);
+    	layout.addView(levelBox);
+
+    	dialog.setView(layout);
+    	new AlertDialog.Builder(this).setTitle("Add Spell").setMessage("Enter the name and level of the spell")
+		.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) { 
+		    	Spell newSpell = new Spell(nameBox.getText().toString(), Integer.parseInt(levelBox.getText().toString()));
+		    	thisCharacter.addSpell(newSpell);
+			}
+			})
+		.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) { 
+				
+			}
+			}).setView(layout).show();    
+    	
+    }
+  
     //Pop up window. Allows selection of which device to transfer to
     public void displayCharList(){
     	AlertDialog.Builder builderSingle = new AlertDialog.Builder(this);

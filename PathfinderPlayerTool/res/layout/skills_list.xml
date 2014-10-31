@@ -13,140 +13,590 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
             
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp" 
-            android:orientation="horizontal">
-
-		    <CheckBox
-		        android:id="@+id/checkBox1"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"/>
-		    
-		    <TextView
-		        android:id="@+id/textView1"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="2"
-		        android:gravity="center"
-		        android:text="Ability Mod" />
+            <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/acrobaticsCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/acrobaticsName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Acrobatics" />
+			
+			    <TextView
+			        android:id="@+id/acrobaticsMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="DEX" />
+			
+			    <TextView
+			        android:id="@+id/acrobaticsValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/acrobaticsExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			    </LinearLayout>
+			    
+            <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/appraiseCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/appraiseName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Appraise" />
+			
+			    <TextView
+			        android:id="@+id/appraiseMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="INT" />
+			
+			    <TextView
+			        android:id="@+id/appraiseValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/appraiseExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			    </LinearLayout>
+			    
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/bluffCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/bluffName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Bluff" />
+			
+			    <TextView
+			        android:id="@+id/bluffMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="CHA" />
+			
+			    <TextView
+			        android:id="@+id/bluffValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/textView4"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			</LinearLayout>
+			
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/climbCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/climbName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Climb" />
+			
+			    <TextView
+			        android:id="@+id/climbMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="STR" />
+			
+			    <TextView
+			        android:id="@+id/climbValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/climbExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			</LinearLayout>
+			    
+			<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/craftCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/craftName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Craft" />
+			
+			    <TextView
+			        android:id="@+id/craftMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="INT" />
+			
+			    <TextView
+			        android:id="@+id/craftValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/craftExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			    </LinearLayout>
+			    
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/diplomacyCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/diplomacyName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Diplomacy" />
+			
+			    <TextView
+			        android:id="@+id/diplomacyMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="CHA" />
+			
+			    <TextView
+			        android:id="@+id/diplomacyValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/textView8"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			</LinearLayout>
+			
+			<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/disableCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/disableName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Disable Device" />
+			
+			    <TextView
+			        android:id="@+id/disableMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="DEX" />
+			
+			    <TextView
+			        android:id="@+id/disableValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/disableExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			</LinearLayout>
+			    
+			<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/flyCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/flyName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Fly" />
+			
+			    <TextView
+			        android:id="@+id/flyMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="DEX" />
+			
+			    <TextView
+			        android:id="@+id/flyValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/flyExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			</LinearLayout>
+			    
+			<LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="50dp" 
+		        android:orientation="horizontal">
 		
-		    <TextView
-		        android:id="@+id/textView2"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="TV" />
-		
-		    <TextView
-		        android:id="@+id/textView3"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="TV" />
-		
-		    <TextView
-		        android:id="@+id/textView4"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="TV" />
-		</LinearLayout>
-		
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp" 
-            android:orientation="horizontal">
-
-		    <CheckBox
-		        android:id="@+id/checkBox2"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"/>
-		    
-		    <TextView
-		        android:id="@+id/textView5"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="2"
-		        android:gravity="center"
-		        android:text="Ability Mod" />
-		
-		    <TextView
-		        android:id="@+id/textView6"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="TV" />
-		
-		    <TextView
-		        android:id="@+id/textView7"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="TV" />
-		
-		    <TextView
-		        android:id="@+id/textView8"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="TV" />
-		</LinearLayout>
-		    
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp" 
-            android:orientation="horizontal">
-
-		    <CheckBox
-		        android:id="@+id/checkBox3"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"/>
-		    
-		    <TextView
-		        android:id="@+id/textView9"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="2"
-		        android:gravity="center"
-		        android:text="Ability Mod" />
-		
-		    <TextView
-		        android:id="@+id/textView10"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="TV" />
-		
-		    <TextView
-		        android:id="@+id/textView11"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="TV" />
-		
-		    <TextView
-		        android:id="@+id/textView12"
-		        android:layout_width="0dp"
-		        android:layout_height="match_parent"
-		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="TV" />
-		    </LinearLayout>
+			    <CheckBox
+			        android:id="@+id/healCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/healName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Heal" />
+			
+			    <TextView
+			        android:id="@+id/healMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="WIS" />
+			
+			    <TextView
+			        android:id="@+id/healValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/healExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			</LinearLayout>    
+				
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/intimidateCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/intimidateName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Intimidate" />
+			
+			    <TextView
+			        android:id="@+id/intimidateMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="CHA" />
+			
+			    <TextView
+			        android:id="@+id/intimidateValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/textView12"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			</LinearLayout>
+			    
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/stealthCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/stealthName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Stealth" />
+			
+			    <TextView
+			        android:id="@+id/stealthMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="DEX" />
+			
+			    <TextView
+			        android:id="@+id/stealthValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/stealthExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			</LinearLayout>
+			
+			<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/swimCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/swimName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Swim" />
+			
+			    <TextView
+			        android:id="@+id/swimMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="STR" />
+			
+			    <TextView
+			        android:id="@+id/swimValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/swimExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			</LinearLayout>
+			        
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/umdCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/umdName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Use Magic Device" />
+			
+			    <TextView
+			        android:id="@+id/umdMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="CHA" />
+			
+			    <TextView
+			        android:id="@+id/umdValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/umdExtra"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="TV" />
+			    </LinearLayout>
 		    </LinearLayout>
 	</ScrollView>
 

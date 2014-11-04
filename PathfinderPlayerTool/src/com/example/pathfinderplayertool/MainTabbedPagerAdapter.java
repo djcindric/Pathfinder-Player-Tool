@@ -47,14 +47,8 @@ public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
 			case 5:
 				frag = new FeatsFragment();
 				return frag;
-			case 6:
-				frag = new NotesFragment();
-				return frag;
 			default:
-				frag = new DemoObjectFragment();
-				Bundle args = new Bundle();
-				args.putInt(DemoObjectFragment.ARG_OBJECT, i + 1);
-				frag.setArguments(args);
+				frag = new NotesFragment();
 				return frag;
 		}
 	}
@@ -85,15 +79,4 @@ public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
 				return "Empty Page";
 		}
 	}
-}
-
-class DemoObjectFragment extends Fragment {
-    public static final String ARG_OBJECT = "object";
-
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-        ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.text_swipe, container, false);
-        return rootView;
-    }
 }

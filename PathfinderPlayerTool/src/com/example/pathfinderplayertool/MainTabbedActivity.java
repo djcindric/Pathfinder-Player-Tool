@@ -269,6 +269,26 @@ public class MainTabbedActivity extends FragmentActivity {
         }).show();
     }
     
+    public void viewLevel(View v){
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Level")
+        .setMessage("Enter new level")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                int val1 = Integer.parseInt(value.toString());
+                thisCharacter.setLevel(val1);
+                TextView tv = (TextView) findViewById(R.id.level_text);
+                tv.setText("Level: " + val1);
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
     public void changePhoto(View v){
     	ImageView iv = (ImageView) findViewById(R.id.picture_view);
     	

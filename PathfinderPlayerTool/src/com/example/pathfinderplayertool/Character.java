@@ -7,7 +7,7 @@ public class Character implements Serializable{
 
 	private static final long serialVersionUID = -7400878238089045378L;
 	private int ID;
-	private int Level;
+	private int Level = 1;
 	private int Experience;
 	private int Next;
 	private int Age;

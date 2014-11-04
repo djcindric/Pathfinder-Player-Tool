@@ -33,7 +33,8 @@ public class NewCharacterDialogFragment extends DialogFragment {
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    LayoutInflater inflater = getActivity().getLayoutInflater();
-	    builder.setView(inflater.inflate(R.layout.dialog_newchar, null))
+	    builder.setView(inflater.inflate(R.layout.dialog_newchar, null)).setTitle("New Character").setMessage("Enter the name of your character, his level, and his skills.\nYou may leave " +
+	    		"fields blank.")
 	           .setPositiveButton("Create", new DialogInterface.OnClickListener() {
 	               @Override
 	               public void onClick(DialogInterface dialog, int id) {

@@ -56,6 +56,9 @@ public class ProfileFragment extends Fragment {
         tv = (TextView) rootView.findViewById(R.id.cha_value_text);
         tv.setText("" + thisCharacter.getSkills().getCharisma());
         
+        tv = (TextView) rootView.findViewById(R.id.level_text);
+        tv.setText("Level: " + thisCharacter.getLevel());
+        
         return rootView;
     }
     

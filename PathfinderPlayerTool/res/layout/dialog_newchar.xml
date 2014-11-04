@@ -2,21 +2,71 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-<!--     <ImageView -->
-<!--         android:src="@drawable/header_logo" -->
-<!--         android:layout_width="match_parent" -->
-<!--         android:layout_height="64dp" -->
-<!--         android:scaleType="center" -->
-<!--         android:background="#FFFFBB33" -->
-<!--         android:contentDescription="@string/app_name" /> -->
+    
     <EditText
         android:id="@+id/char_name"
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:hint="Name"/>
+    <EditText
+        android:id="@+id/char_level"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:hint="Level"/>
+    <EditText
+        android:id="@+id/char_str"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:hint="Strength"/>
+    <EditText
+        android:id="@+id/char_dex"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:hint="Dexterity"/>
+    <EditText
+        android:id="@+id/char_con"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:hint="Constitution"/>
+    <EditText
+        android:id="@+id/char_int"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:hint="Intelligence"/>
+    <EditText
+        android:id="@+id/char_wis"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:hint="Wisdom"/>
+    <EditText
+        android:id="@+id/char_cha"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
-        android:hint="Name"/>
+        android:hint="Charisma"/>
+    
 </LinearLayout>

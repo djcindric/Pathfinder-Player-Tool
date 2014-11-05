@@ -258,8 +258,8 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
     	int ID = CharacterID.generateID(this.getFilesDir());
     	Character newChar = new Character(name, ID);
     	newChar.setLevel(level);
-    	Skill newSkills = new Skill(str, dex, con, intel, wis, cha);
-    	newChar.setSkills(newSkills);
+    	Abilities newAbilities = new Abilities(str, dex, con, intel, wis, cha);
+    	newChar.setAbilities(newAbilities);
     	
     	 try
          {

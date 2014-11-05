@@ -32,11 +32,12 @@ public class Character implements Serializable{
 	private ArrayList<Weapon> Weapons;
 	private ArrayList<Armor> Armors;
 	private ArrayList<Spell> Spells = new ArrayList<Spell>();
+	private ArrayList<Skill> Skills = new ArrayList<Skill>();
 	private ArrayList<Feat> Feats;
-	private Ability Abilities;
 	private Weapon MainHand = new Weapon();
 	private Weapon OffHand = new Weapon();
-	private Skill Skills = new Skill();
+	private Abilities Abilities = new Abilities();
+	
 	
 	public Character(){
 		
@@ -45,6 +46,37 @@ public class Character implements Serializable{
 	public Character(String name, int id){
 		setName(name);
 		setID(id);
+		populateSkills();
+	}
+	
+	public void populateSkills(){
+		Skill acrobatics = new Skill("Acrobatics", "Dex");
+		Skill appraise = new Skill("Appraise", "Int");
+		Skill bluff = new Skill("Bluff", "Cha");
+		Skill climb = new Skill("Climb", "Str");
+		Skill craft = new Skill("Craft", "Int");
+		Skill diplomacy = new Skill("Diplomacy", "Cha");
+		Skill disable = new Skill("Disable Device", "Dex");
+		Skill fly = new Skill("Fly", "Dex");
+		Skill heal = new Skill("Heal", "Wis");
+		Skill intimidate = new Skill("Intimidate", "Cha");
+		Skill stealth = new Skill("Stealth", "Dex");
+		Skill swim = new Skill("Swim", "Str");
+		Skill umd = new Skill("Use Magic Device", "Cha");
+		
+		Skills.add(acrobatics);
+		Skills.add(appraise);
+		Skills.add(bluff);
+		Skills.add(climb);
+		Skills.add(craft);
+		Skills.add(diplomacy);
+		Skills.add(disable);
+		Skills.add(fly);
+		Skills.add(heal);
+		Skills.add(intimidate);
+		Skills.add(stealth);
+		Skills.add(swim);
+		Skills.add(umd);
 	}
 	
 	public void addWeapon(Weapon w){
@@ -183,22 +215,6 @@ public class Character implements Serializable{
 		Eyes = eyes;
 	}
 
-	public Ability getAbilities() {
-		return Abilities;
-	}
-
-	public void setAbilities(Ability abilities) {
-		Abilities = abilities;
-	}
-
-	public Skill getSkills() {
-		return Skills;
-	}
-
-	public void setSkills(Skill skills) {
-		Skills = skills;
-	}
-
 	public int getID() {
 		return ID;
 	}
@@ -317,5 +333,21 @@ public class Character implements Serializable{
 
 	public void setDailySpellLimit(int dailySpellLimit) {
 		this.dailySpellLimit = dailySpellLimit;
+	}
+
+	public Abilities getAbilities() {
+		return Abilities;
+	}
+
+	public void setAbilities(Abilities abilities) {
+		Abilities = abilities;
+	}
+
+	public ArrayList<Skill> getSkills() {
+		return Skills;
+	}
+
+	public void setSkills(ArrayList<Skill> skills) {
+		Skills = skills;
 	}
 }

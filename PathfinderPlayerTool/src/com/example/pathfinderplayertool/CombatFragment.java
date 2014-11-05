@@ -48,13 +48,13 @@ public class CombatFragment extends Fragment {
         tv.setText("" + thisCharacter.getInitiative());
         
         tv = (TextView) rootView.findViewById(R.id.cmb_val);
-        tv.setText("" + ( (thisCharacter.getSkills().getStrength() -10)/2));
+        tv.setText("" + ( (thisCharacter.getAbilities().getStrength() -10)/2));
         
         tv = (TextView) rootView.findViewById(R.id.melee_val);
-        tv.setText("" + ( (thisCharacter.getSkills().getStrength() -10)/2));
+        tv.setText("" + ( (thisCharacter.getAbilities().getStrength() -10)/2));
         
         tv = (TextView) rootView.findViewById(R.id.ranged_val);
-        tv.setText("" + ( (thisCharacter.getSkills().getDexterity() -10)/2));
+        tv.setText("" + ( (thisCharacter.getAbilities().getDexterity() -10)/2));
         
         tv = (TextView) rootView.findViewById(R.id.main_weapon_name);
         tv.setText("" + thisCharacter.getMainHand().getName());

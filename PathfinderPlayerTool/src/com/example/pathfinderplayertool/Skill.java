@@ -3,72 +3,61 @@ package com.example.pathfinderplayertool;
 import java.io.Serializable;
 
 public class Skill implements Serializable{
-	private int strength=10;
-	private int dexterity=10;
-	private int constitution=10;
-	private int intelligence=10;
-	private int wisdom=10;
-	private int charisma=10;
+
+	private static final long serialVersionUID = -8354385479663275242L;
+	private boolean isClassSkill = false;
+	private String name;
+	private String modifier;
+	private int modifierBonus = 0;
+	private int skillPoints= 0;
 	
 	public Skill(){
 		
 	}
 	
-	public Skill(int str, int dex, int con, int intel, int wis, int cha){
-		setStrength(str);
-		setDexterity(dex);
-		setConstitution(con);
-		setIntelligence(intel);
-		setWisdom(wis);
-		setCharisma(cha);
+	public Skill(String name, String modifier){
+		this.name = name;
+		this.modifier = modifier;
 	}
 
-	public int getStrength() {
-		return strength;
+	public boolean isClassSkill() {
+		return isClassSkill;
 	}
 
-	public void setStrength(int strength) {
-		this.strength = strength;
+	public void setClassSkill(boolean isClassSkill) {
+		this.isClassSkill = isClassSkill;
 	}
 
-	public int getDexterity() {
-		return dexterity;
+	public String getName() {
+		return name;
 	}
 
-	public void setDexterity(int dexterity) {
-		this.dexterity = dexterity;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getConstitution() {
-		return constitution;
+	public String getModifier() {
+		return modifier;
 	}
 
-	public void setConstitution(int constitution) {
-		this.constitution = constitution;
+	public void setModifier(String modifier) {
+		this.modifier = modifier;
 	}
 
-	public int getIntelligence() {
-		return intelligence;
+	public int getModifierBonus() {
+		return modifierBonus;
 	}
 
-	public void setIntelligence(int intelligence) {
-		this.intelligence = intelligence;
+	public void setModifierBonus(int modifierBonus) {
+		this.modifierBonus = modifierBonus;
 	}
 
-	public int getWisdom() {
-		return wisdom;
+	public int getSkillPoints() {
+		return skillPoints;
 	}
 
-	public void setWisdom(int wisdom) {
-		this.wisdom = wisdom;
+	public void setSkillPoints(int skillPoints) {
+		this.skillPoints = skillPoints;
 	}
-
-	public int getCharisma() {
-		return charisma;
-	}
-
-	public void setCharisma(int charisma) {
-		this.charisma = charisma;
-	}
-
+	
 }

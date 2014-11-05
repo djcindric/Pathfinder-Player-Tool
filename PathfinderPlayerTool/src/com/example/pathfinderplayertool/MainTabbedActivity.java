@@ -29,6 +29,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -151,6 +152,7 @@ public class MainTabbedActivity extends FragmentActivity {
     
     public void viewStrength(View v){
     	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
     	new AlertDialog.Builder(this)
         .setTitle("Edit Strength")
         .setMessage("Enter new strength value")
@@ -158,10 +160,12 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                int val1 = Integer.parseInt(value.toString());
-                thisCharacter.getSkills().setStrength(val1);
-                TextView tv = (TextView) findViewById(R.id.str_value_text);
-                tv.setText("" + val1);
+                if(!value.toString().equals("")){
+                	int val1 = Integer.parseInt(value.toString());
+                    thisCharacter.getAbilities().setStrength(val1);
+                    TextView tv = (TextView) findViewById(R.id.str_value_text);
+                    tv.setText("" + val1);
+                }
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -171,6 +175,7 @@ public class MainTabbedActivity extends FragmentActivity {
     
     public void viewDexterity(View v){
     	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
     	new AlertDialog.Builder(this)
         .setTitle("Edit Dexterity")
         .setMessage("Enter new dexterity value")
@@ -178,10 +183,12 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                int val1 = Integer.parseInt(value.toString());
-                thisCharacter.getSkills().setDexterity(val1);
-                TextView tv = (TextView) findViewById(R.id.dex_value_text);
-                tv.setText("" + val1);
+                if(!value.toString().equals("")){
+                	int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.getAbilities().setDexterity(val1);
+	                TextView tv = (TextView) findViewById(R.id.dex_value_text);
+	                tv.setText("" + val1);
+                }
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -191,6 +198,7 @@ public class MainTabbedActivity extends FragmentActivity {
 
     public void viewConstitution(View v){
     	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
     	new AlertDialog.Builder(this)
         .setTitle("Edit Constitution")
         .setMessage("Enter new constitution value")
@@ -198,10 +206,12 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                int val1 = Integer.parseInt(value.toString());
-                thisCharacter.getSkills().setConstitution(val1);
-                TextView tv = (TextView) findViewById(R.id.con_value_text);
-                tv.setText("" + val1);
+                if(!value.toString().equals("")){
+	                int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.getAbilities().setConstitution(val1);
+	                TextView tv = (TextView) findViewById(R.id.con_value_text);
+	                tv.setText("" + val1);
+                }
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -211,6 +221,7 @@ public class MainTabbedActivity extends FragmentActivity {
     
     public void viewIntelligence(View v){
     	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
     	new AlertDialog.Builder(this)
         .setTitle("Edit Intelligence")
         .setMessage("Enter new intelligence value")
@@ -218,10 +229,12 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                int val1 = Integer.parseInt(value.toString());
-                thisCharacter.getSkills().setIntelligence(val1);
-                TextView tv = (TextView) findViewById(R.id.int_value_text);
-                tv.setText("" + val1);
+                if(!value.toString().equals("")){
+	                int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.getAbilities().setIntelligence(val1);
+	                TextView tv = (TextView) findViewById(R.id.int_value_text);
+	                tv.setText("" + val1);
+                }
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -231,6 +244,7 @@ public class MainTabbedActivity extends FragmentActivity {
     
     public void viewWisdom(View v){
     	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
     	new AlertDialog.Builder(this)
         .setTitle("Edit Wisdom")
         .setMessage("Enter new wisdom value")
@@ -238,10 +252,12 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                int val1 = Integer.parseInt(value.toString());
-                thisCharacter.getSkills().setWisdom(val1);
-                TextView tv = (TextView) findViewById(R.id.wis_value_text);
-                tv.setText("" + val1);
+                if(!value.toString().equals("")){
+	                int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.getAbilities().setWisdom(val1);
+	                TextView tv = (TextView) findViewById(R.id.wis_value_text);
+	                tv.setText("" + val1);
+                }
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -251,6 +267,7 @@ public class MainTabbedActivity extends FragmentActivity {
     
     public void viewCharisma(View v){
     	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
     	new AlertDialog.Builder(this)
         .setTitle("Edit Charisma")
         .setMessage("Enter new charisma value")
@@ -258,10 +275,12 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                int val1 = Integer.parseInt(value.toString());
-                thisCharacter.getSkills().setCharisma(val1);
-                TextView tv = (TextView) findViewById(R.id.cha_value_text);
-                tv.setText("" + val1);
+                if(!value.toString().equals("")){
+	                int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.getAbilities().setCharisma(val1);
+	                TextView tv = (TextView) findViewById(R.id.cha_value_text);
+	                tv.setText("" + val1);
+                }
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -271,6 +290,7 @@ public class MainTabbedActivity extends FragmentActivity {
     
     public void viewLevel(View v){
     	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
     	new AlertDialog.Builder(this)
         .setTitle("Edit Level")
         .setMessage("Enter new level")
@@ -278,10 +298,12 @@ public class MainTabbedActivity extends FragmentActivity {
         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText(); 
-                int val1 = Integer.parseInt(value.toString());
-                thisCharacter.setLevel(val1);
-                TextView tv = (TextView) findViewById(R.id.level_text);
-                tv.setText("Level: " + val1);
+                if(!value.toString().equals("")){
+	                int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.setLevel(val1);
+	                TextView tv = (TextView) findViewById(R.id.level_text);
+	                tv.setText("Level: " + val1);
+                }
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -299,14 +321,14 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollStrength(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getStrength() + " + " + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getAbilities().getStrength() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     }
     
     public void rollDexterity(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getDexterity() + " + " + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getAbilities().getDexterity() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }
@@ -314,7 +336,7 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollConstitution(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getConstitution() + " + " + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getAbilities().getConstitution() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }
@@ -322,7 +344,7 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollIntelligence(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getIntelligence() + " + " + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getAbilities().getIntelligence() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }
@@ -330,7 +352,7 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollWisdom(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getWisdom() + " + " + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getAbilities().getWisdom() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }
@@ -338,7 +360,7 @@ public class MainTabbedActivity extends FragmentActivity {
     public void rollCharisma(View v){
     	Random r = new Random();
     	int ran = r.nextInt(21 - 1) + 1;
-    	Toast t = Toast.makeText(this, thisCharacter.getSkills().getCharisma() + " + " + ran, Toast.LENGTH_SHORT);
+    	Toast t = Toast.makeText(this, thisCharacter.getAbilities().getCharisma() + " + " + ran, Toast.LENGTH_SHORT);
     	t.show();
     	
     }
@@ -414,39 +436,6 @@ public class MainTabbedActivity extends FragmentActivity {
     	TextView tv = (TextView) findViewById(R.id.dailyValue);
     	tv.setText("0");
     	thisCharacter.setDailySpellLimit(0);
-    }
-    
-    public void addSpell(View v){
-    	AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Set Target Title & Description");
-        dialog.setMessage("Title: ");
-        
-    	LinearLayout layout = new LinearLayout(this);
-    	layout.setOrientation(LinearLayout.VERTICAL);
-
-    	final EditText nameBox = new EditText(this);
-    	nameBox.setHint("Name");
-    	layout.addView(nameBox);
-
-    	final EditText levelBox = new EditText(this);
-    	levelBox.setHint("Level");
-    	levelBox.setInputType(InputType.TYPE_CLASS_NUMBER);
-    	layout.addView(levelBox);
-
-    	dialog.setView(layout);
-    	new AlertDialog.Builder(this).setTitle("Add Spell").setMessage("Enter the name and level of the spell")
-		.setPositiveButton("Add", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) { 
-		    	Spell newSpell = new Spell(nameBox.getText().toString(), Integer.parseInt(levelBox.getText().toString()));
-		    	thisCharacter.addSpell(newSpell);
-			}
-			})
-		.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) { 
-				
-			}
-			}).setView(layout).show();    
-    	
     }
   
     //Pop up window. Allows selection of which device to transfer to
@@ -592,7 +581,6 @@ public class MainTabbedActivity extends FragmentActivity {
 						in.close();
 	    		        fileIn.close();
 					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} catch (IOException e) {

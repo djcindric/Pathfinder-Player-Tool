@@ -22,7 +22,6 @@ import android.widget.TextView;
 
 public class SpellsFragment extends Fragment {
 	public String charName = "";
-//	public Character thisCharacter = null;
 	public TextView tv = null;
 	
 	public ExpandableListAdapter listAdapter;
@@ -64,10 +63,13 @@ public class SpellsFragment extends Fragment {
             	new AlertDialog.Builder(getActivity()).setTitle("Add Spell").setMessage("Enter the name and level of the spell")
         		.setPositiveButton("Add", new DialogInterface.OnClickListener() {
         			public void onClick(DialogInterface dialog, int which) { 
-        		    	Spell newSpell = new Spell(nameBox.getText().toString(), Integer.parseInt(levelBox.getText().toString()));
-        		    	MainTabbedActivity.thisCharacter.addSpell(newSpell);
-        		    	listDataChild.get(listDataHeader.get(newSpell.getLevel())).add(newSpell.getName());
-                		listAdapter.notifyDataSetChanged();
+        				String tempString = levelBox.getText().toString();
+        				if (!tempString.equals("")){
+        					Spell newSpell = new Spell(nameBox.getText().toString(), Integer.parseInt(tempString));
+            		    	MainTabbedActivity.thisCharacter.addSpell(newSpell);
+            		    	listDataChild.get(listDataHeader.get(newSpell.getLevel())).add(newSpell.getName());
+                    		listAdapter.notifyDataSetChanged();
+        				}
         			}
         			})
         		.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -193,17 +195,6 @@ public class SpellsFragment extends Fragment {
     				break;
     		}
     	}
-        
-//    	spells0.add("Light");
-//    	spells0.add("Guidance");
-//    	spells1.add("Bless");
-//    	spells2.add("Aid");
-//    	spells3.add("Contagion");
-//    	spells4.add("Dismissal");
-//    	spells5.add("Atonement");
-//    	spells6.add("Banishment");
-//    	spells7.add("Resurrection");
-//    	spells8.add("Fire Storm");
     	
     	listDataChild.put(listDataHeader.get(0), spells0);
     	listDataChild.put(listDataHeader.get(1), spells1);

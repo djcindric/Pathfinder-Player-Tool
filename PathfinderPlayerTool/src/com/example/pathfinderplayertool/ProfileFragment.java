@@ -39,22 +39,22 @@ public class ProfileFragment extends Fragment {
         catch(ClassNotFoundException c){c.printStackTrace();}
         
         tv = (TextView) rootView.findViewById(R.id.str_value_text);
-        tv.setText("" + thisCharacter.getSkills().getStrength());
+        tv.setText("" + thisCharacter.getAbilities().getStrength());
 
         tv = (TextView) rootView.findViewById(R.id.dex_value_text);
-        tv.setText("" + thisCharacter.getSkills().getDexterity());
+        tv.setText("" + thisCharacter.getAbilities().getDexterity());
         
         tv = (TextView) rootView.findViewById(R.id.con_value_text);
-        tv.setText("" + thisCharacter.getSkills().getConstitution());
+        tv.setText("" + thisCharacter.getAbilities().getConstitution());
         
         tv = (TextView) rootView.findViewById(R.id.int_value_text);
-        tv.setText("" + thisCharacter.getSkills().getIntelligence());
+        tv.setText("" + thisCharacter.getAbilities().getIntelligence());
         
         tv = (TextView) rootView.findViewById(R.id.wis_value_text);
-        tv.setText("" + thisCharacter.getSkills().getWisdom());
+        tv.setText("" + thisCharacter.getAbilities().getWisdom());
         
         tv = (TextView) rootView.findViewById(R.id.cha_value_text);
-        tv.setText("" + thisCharacter.getSkills().getCharisma());
+        tv.setText("" + thisCharacter.getAbilities().getCharisma());
         
         tv = (TextView) rootView.findViewById(R.id.level_text);
         tv.setText("Level: " + thisCharacter.getLevel());

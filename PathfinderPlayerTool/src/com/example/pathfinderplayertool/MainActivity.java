@@ -98,8 +98,6 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
     		listWithID.add(thisCharacter.getName() + "-" + thisCharacter.getID());
     		listWithoutID.add(thisCharacter.getName() + " - Lvl: " + thisCharacter.getLevel());
 	        
-//    	    listWithID.add(file[i].getName().substring(0,file[i].getName().length()-4));
-//			listWithoutID.add(file[i].getName().substring(0,file[i].getName().lastIndexOf("-")));
     	}
 		
     	//Populate the listview (Declared in activity_main.xml) with names from the .txt file
@@ -128,6 +126,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 	    		new AlertDialog.Builder(parent.getContext()).setTitle("Delete entry").setMessage("Are you sure you want to delete this entry?")
 	    			.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 	    				public void onClick(DialogInterface dialog, int which) { 
+	    					listWithID.remove(position);
 					    	listWithoutID.remove(position);
 					    	adapter.notifyDataSetChanged();
 					    	removeCharacter(item);
@@ -169,7 +168,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 			return true;
 		}
 		if (id == R.id.new_character) {
-			promptTutorial();
+			skipTutorial();
 		}
 		if(id == R.id.rate_application){
 			rateApplication();

@@ -2,6 +2,9 @@ package com.example.pathfinderplayertool;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import android.graphics.Bitmap;
 
 public class Character implements Serializable{
 
@@ -33,10 +36,12 @@ public class Character implements Serializable{
 	private ArrayList<Armor> Armors;
 	private ArrayList<Spell> Spells = new ArrayList<Spell>();
 	private ArrayList<Skill> Skills = new ArrayList<Skill>();
+	private HashMap<String, Skill> SkillsMap;
 	private ArrayList<Feat> Feats;
 	private Weapon MainHand = new Weapon();
 	private Weapon OffHand = new Weapon();
 	private Abilities Abilities = new Abilities();
+	private String PicturePath = "";
 	
 	
 	public Character(){
@@ -50,6 +55,8 @@ public class Character implements Serializable{
 	}
 	
 	public void populateSkills(){
+		SkillsMap = new HashMap<String, Skill>();
+		
 		Skill acrobatics = new Skill("Acrobatics", "Dex");
 		Skill appraise = new Skill("Appraise", "Int");
 		Skill bluff = new Skill("Bluff", "Cha");
@@ -64,19 +71,20 @@ public class Character implements Serializable{
 		Skill swim = new Skill("Swim", "Str");
 		Skill umd = new Skill("Use Magic Device", "Cha");
 		
-		Skills.add(acrobatics);
-		Skills.add(appraise);
-		Skills.add(bluff);
-		Skills.add(climb);
-		Skills.add(craft);
-		Skills.add(diplomacy);
-		Skills.add(disable);
-		Skills.add(fly);
-		Skills.add(heal);
-		Skills.add(intimidate);
-		Skills.add(stealth);
-		Skills.add(swim);
-		Skills.add(umd);
+		SkillsMap.put("Acrobatics", acrobatics);
+		SkillsMap.put("Appraise", appraise);
+		SkillsMap.put("Bluff", bluff);
+		SkillsMap.put("Climb", climb);
+		SkillsMap.put("Craft", craft);
+		SkillsMap.put("Diplomacy", diplomacy);
+		SkillsMap.put("Disable", disable);
+		SkillsMap.put("Fly", fly);
+		SkillsMap.put("Heal", heal);
+		SkillsMap.put("Intimidate", intimidate);
+		SkillsMap.put("Stealth", stealth);
+		SkillsMap.put("Swim", swim);
+		SkillsMap.put("Use Magic Device", umd);
+		
 	}
 	
 	public void addWeapon(Weapon w){
@@ -342,6 +350,14 @@ public class Character implements Serializable{
 	public void setAbilities(Abilities abilities) {
 		Abilities = abilities;
 	}
+	
+	public HashMap<String, Skill> getSkillsMap() {
+		return SkillsMap;
+	}
+	
+	public void setSkillsMap(HashMap<String, Skill> skillsMap){
+		SkillsMap = skillsMap;
+	}
 
 	public ArrayList<Skill> getSkills() {
 		return Skills;
@@ -349,5 +365,13 @@ public class Character implements Serializable{
 
 	public void setSkills(ArrayList<Skill> skills) {
 		Skills = skills;
+	}
+
+	public String getPicturePath() {
+		return PicturePath;
+	}
+
+	public void setPicturePath(String picturePath) {
+		PicturePath = picturePath;
 	}
 }

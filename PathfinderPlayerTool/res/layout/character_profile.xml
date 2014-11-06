@@ -21,7 +21,7 @@
 		    android:layout_marginBottom="2dp"
 		    android:layout_marginLeft="2dp"
 		    android:layout_marginRight="2dp"
-			android:onClick="changePhoto"
+			android:onClick="pictureClicked"
             android:src="@drawable/dude" 
             android:scaleType="centerCrop" />
 
@@ -260,7 +260,7 @@
     <LinearLayout
         android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:layout_weight="1"
+		android:layout_weight="2"
         android:orientation="horizontal"
         android:layout_marginTop="2dp"
 	    android:layout_marginBottom="2dp"
@@ -273,12 +273,29 @@
 		    android:layout_height="match_parent"
 		    android:gravity="center"
             android:text="Character Info" />
+        
     </LinearLayout>
+    
+    <TextView
+		android:id="@+id/level_text"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight=".5"
+		android:gravity="center"
+		android:background="#000"
+		android:textColor="#FFF"
+		android:layout_marginTop="2dp"
+		android:layout_marginBottom="2dp"
+		android:layout_marginLeft="2dp"
+		android:layout_marginRight="2dp"
+		android:clickable="true"
+		android:onClick="viewLevel"
+		android:text="@string/place_holder" />
 
     <LinearLayout
         android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:layout_weight="3"
+		android:layout_weight="2"
         android:orientation="horizontal" >
         
         <LinearLayout
@@ -287,21 +304,6 @@
 			android:layout_weight="1"
 	        android:orientation="vertical">
             
-            <TextView
-	            android:id="@+id/level_text"
-	            android:layout_width="match_parent"
-			    android:layout_height="0dp"
-			    android:layout_weight="1"
-			    android:gravity="center"
-			    android:background="#000"
-			    android:textColor="#FFF"
-			    android:layout_marginTop="2dp"
-			    android:layout_marginBottom="2dp"
-			    android:layout_marginLeft="2dp"
-			    android:layout_marginRight="2dp"
-			    android:clickable="true"
-			    android:onClick="viewLevel"
-	            android:text="@string/place_holder" />
             <TextView
 	            android:id="@+id/ac_text"
 	            android:layout_width="match_parent"
@@ -315,19 +317,6 @@
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
 	            android:text="@string/armor_class" />
-            <TextView
-	            android:id="@+id/flat_text"
-	            android:layout_width="match_parent"
-			    android:layout_height="0dp"
-			    android:layout_weight="1"
-			    android:gravity="center"
-			    android:background="#000"
-			    android:textColor="#FFF"
-			    android:layout_marginTop="2dp"
-			    android:layout_marginBottom="2dp"
-			    android:layout_marginLeft="2dp"
-			    android:layout_marginRight="2dp"
-	            android:text="@string/flatfooted" />
             <TextView
 	            android:id="@+id/touch_text"
 	            android:layout_width="match_parent"
@@ -376,8 +365,8 @@
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
 	            android:text="@string/health" />
-            <TextView
-	            android:id="@+id/init_text"
+    	    <TextView
+	            android:id="@+id/flat_text"
 	            android:layout_width="match_parent"
 			    android:layout_height="0dp"
 			    android:layout_weight="1"
@@ -388,33 +377,7 @@
 			    android:layout_marginBottom="2dp"
 			    android:layout_marginLeft="2dp"
 			    android:layout_marginRight="2dp"
-	            android:text="@string/init" />
-            <TextView
-	            android:id="@+id/bab_text"
-	            android:layout_width="match_parent"
-			    android:layout_height="0dp"
-			    android:layout_weight="1"
-			    android:gravity="center"
-			    android:background="#000"
-			    android:textColor="#FFF"
-			    android:layout_marginTop="2dp"
-			    android:layout_marginBottom="2dp"
-			    android:layout_marginLeft="2dp"
-			    android:layout_marginRight="2dp"
-	            android:text="@string/base_attack" />
-            <TextView
-	            android:id="@+id/cmb_text"
-	            android:layout_width="match_parent"
-			    android:layout_height="0dp"
-			    android:layout_weight="1"
-			    android:gravity="center"
-			    android:background="#000"
-			    android:textColor="#FFF"
-			    android:layout_marginTop="2dp"
-			    android:layout_marginBottom="2dp"
-			    android:layout_marginLeft="2dp"
-			    android:layout_marginRight="2dp"
-	            android:text="@string/cmb" />
+	            android:text="@string/flatfooted" />
             <TextView
 	            android:id="@+id/move_text"
 	            android:layout_width="match_parent"

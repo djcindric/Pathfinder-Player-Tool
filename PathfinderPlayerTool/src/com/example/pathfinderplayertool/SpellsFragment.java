@@ -4,15 +4,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
@@ -28,6 +32,9 @@ public class SpellsFragment extends Fragment {
 	public ExpandableListView expListView;
 	public List<String> listDataHeader;
 	public HashMap<String, List<String>> listDataChild;
+	
+	DisplayMetrics displayMetrics;
+	int width;
 	
 	public SpellsFragment (String s){
 		charName = s;
@@ -80,10 +87,12 @@ public class SpellsFragment extends Fragment {
             	
         	}
         });
+        
         return rootView;
     }
     
-    public void onViewCreated(View v, Bundle b){
+    @SuppressLint("NewApi")
+	public void onViewCreated(View v, Bundle b){
     	super.onViewCreated(v,b);
     	expListView = (ExpandableListView) this.getActivity().findViewById(R.id.spellsExpandableList);
     	
@@ -120,6 +129,20 @@ public class SpellsFragment extends Fragment {
         prepareListData();
         listAdapter = new ExpandableListAdapter(this.getActivity().getBaseContext(), listDataHeader, listDataChild);
     	expListView.setAdapter(listAdapter);
+    	
+    	displayMetrics = new DisplayMetrics();
+        WindowManager windowManager = (WindowManager) v.getContext().getSystemService(Context.WINDOW_SERVICE);
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+
+        width = displayMetrics.widthPixels;
+
+        if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
+               expListView.setIndicatorBounds(width - GetDipsFromPixel(50), width - GetDipsFromPixel(10));
+        } else {
+        	expListView.setIndicatorBoundsRelative(width - GetDipsFromPixel(50), width - GetDipsFromPixel(10));
+        }
+        expListView.setAdapter(listAdapter);
+    	
     }
     
     public void prepareListData(){
@@ -206,5 +229,11 @@ public class SpellsFragment extends Fragment {
     	listDataChild.put(listDataHeader.get(7), spells7);
     	listDataChild.put(listDataHeader.get(8), spells8);
     	listDataChild.put(listDataHeader.get(9), spells9);
+    }
+    
+
+    private int GetDipsFromPixel(int pixels) {
+	    final float scale = getResources().getDisplayMetrics().density;
+	    return (int) (pixels * scale + 0.5f);
     }
 }

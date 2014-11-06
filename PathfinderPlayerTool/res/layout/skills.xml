@@ -3,11 +3,766 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
-    <ListView
-        android:id="@+id/skillsListView"
+    
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+        android:layout_height="50dp" 
+        android:orientation="horizontal">
+	
+	    <TextView
+	        android:id="@+id/checkboxName"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:text="Class Skill" />
+	    
+	    <TextView
+	        android:id="@+id/skillName"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_weight="2"
+	        android:gravity="center"
+	        android:text="Ability\nName" />
+	
+	    <TextView
+	        android:id="@+id/modName"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:text="Ability Mod" />
+	
+	    <TextView
+	        android:id="@+id/modValueName"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:text="Mod Value" />
+	
+	    <TextView
+	        android:id="@+id/skillPointsValueName"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:text="Skill Points" />
+	    
+	    <TextView
+	        android:id="@+id/skillRankValueName"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:text="Skill Rank" />
+	    
+	</LinearLayout>
+			
+    <View 
+	    android:layout_width="fill_parent"
+	    android:layout_height="2dp"
+	    android:background="@android:color/darker_gray"/>
+    
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+            <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/acrobaticsCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/acrobaticsName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Acrobatics" />
+			
+			    <TextView
+			        android:id="@+id/acrobaticsMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="DEX" />
+			
+			    <TextView
+			        android:id="@+id/acrobaticsModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/acrobaticsPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+
+			    <TextView
+			        android:id="@+id/acrobaticsRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+
+			</LinearLayout>
+			    
+            <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/appraiseCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/appraiseName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Appraise" />
+			
+			    <TextView
+			        android:id="@+id/appraiseMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="INT" />
+			
+			    <TextView
+			        android:id="@+id/appraiseModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/appraisePoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/appraiseRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>
+			    
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/bluffCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/bluffName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Bluff" />
+			
+			    <TextView
+			        android:id="@+id/bluffMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="CHA" />
+			
+			    <TextView
+			        android:id="@+id/bluffModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/bluffPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/bluffRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>
+			
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/climbCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/climbName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Climb" />
+			
+			    <TextView
+			        android:id="@+id/climbMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="STR" />
+			
+			    <TextView
+			        android:id="@+id/climbModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/climbPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/climbRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>
+			    
+			<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/craftCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/craftName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Craft" />
+			
+			    <TextView
+			        android:id="@+id/craftMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="INT" />
+			
+			    <TextView
+			        android:id="@+id/craftModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/craftPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/craftRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    </LinearLayout>
+			    
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/diplomacyCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/diplomacyName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Diplomacy" />
+			
+			    <TextView
+			        android:id="@+id/diplomacyMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="CHA" />
+			
+			    <TextView
+			        android:id="@+id/diplomacyModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/diplomacyPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/diplomacyRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>
+			
+			<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/disableCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/disableName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Disable Device" />
+			
+			    <TextView
+			        android:id="@+id/disableMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="DEX" />
+			
+			    <TextView
+			        android:id="@+id/disableModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/disablePoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/disableRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>
+			    
+			<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/flyCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/flyName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Fly" />
+			
+			    <TextView
+			        android:id="@+id/flyMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="DEX" />
+			
+			    <TextView
+			        android:id="@+id/flyModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/flyPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/flyRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>
+			    
+			<LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="50dp" 
+		        android:orientation="horizontal">
+		
+			    <CheckBox
+			        android:id="@+id/healCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/healName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Heal" />
+			
+			    <TextView
+			        android:id="@+id/healMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="WIS" />
+			
+			    <TextView
+			        android:id="@+id/healModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/healPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/healRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>    
+				
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/intimidateCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/intimidateName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Intimidate" />
+			
+			    <TextView
+			        android:id="@+id/intimidateMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="CHA" />
+			
+			    <TextView
+			        android:id="@+id/intimidateModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/intimidatePoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/intimidateRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>
+			    
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/stealthCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/stealthName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Stealth" />
+			
+			    <TextView
+			        android:id="@+id/stealthMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="DEX" />
+			
+			    <TextView
+			        android:id="@+id/stealthModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/stealthPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/stealthRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>
+			
+			<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/swimCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/swimName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Swim" />
+			
+			    <TextView
+			        android:id="@+id/swimMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="STR" />
+			
+			    <TextView
+			        android:id="@+id/swimModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/swimPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/swimRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			</LinearLayout>
+			        
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="50dp" 
+	            android:orientation="horizontal">
+	
+			    <CheckBox
+			        android:id="@+id/umdCheckBox"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"/>
+			    
+			    <TextView
+			        android:id="@+id/umdName"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="2"
+			        android:gravity="center"
+			        android:text="Use Magic Device" />
+			
+			    <TextView
+			        android:id="@+id/umdMod"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="CHA" />
+			
+			    <TextView
+			        android:id="@+id/umdModValue"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    
+			    <TextView
+			        android:id="@+id/umdPoints"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			
+			    <TextView
+			        android:id="@+id/umdRank"
+			        android:layout_width="0dp"
+			        android:layout_height="match_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:text="@string/place_holder" />
+			    </LinearLayout>
+		    </LinearLayout>
+	</ScrollView>
 
 </LinearLayout>

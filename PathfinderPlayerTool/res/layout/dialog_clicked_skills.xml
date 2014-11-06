@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical" >
+        
+        <TextView
+	        android:id="@+id/modText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Ability Modifier: "
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    	<TextView
+	        android:id="@+id/classText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Class Bonus: "
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    	<TextView
+	        android:id="@+id/skillText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Skill Points: "
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+    	
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical" >
+        
+        <TextView
+	        android:id="@+id/modValue"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="+4"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    	<TextView
+	        android:id="@+id/classValue"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="+3"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    	<TextView
+	        android:id="@+id/skillValue"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="+7"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+    	
+    </LinearLayout>
+    
+</LinearLayout>

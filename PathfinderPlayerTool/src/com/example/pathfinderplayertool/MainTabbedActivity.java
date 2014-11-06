@@ -19,12 +19,17 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
-import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,11 +38,13 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainTabbedActivity extends FragmentActivity {
+	
+	private static int RESULT_LOAD_IMAGE = 144;
+	public int REQUEST_ENABLE_BT = 1337;
 	
     MainTabbedPagerAdapter mMainTabbedPagerAdapter;
     ViewPager mViewPager;
@@ -45,10 +52,10 @@ public class MainTabbedActivity extends FragmentActivity {
     public static Character thisCharacter = null;
     public BluetoothAdapter mBluetoothAdapter;
 	final Handler mHandler = new Handler();
-	public int REQUEST_ENABLE_BT = 1337;
 	public ArrayAdapter<String> bluetoothArrayAdapter;
 	public UUID MY_UUID;
 	public File theDirectory;
+	public static File theFullFile;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,12 +71,17 @@ public class MainTabbedActivity extends FragmentActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mMainTabbedPagerAdapter);
         
+        PagerTabStrip strip = (PagerTabStrip) findViewById(R.id.pager_tab_strip);
+        strip.setTabIndicatorColor(0xB30000);
+        strip.setDrawFullUnderline(true);
+        
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         
         //Retrieve the character object by the name/ID
         try
         {
+        	theFullFile = new File(this.getFilesDir(), "/chars/" + message + ".ser");
         	File file = new File(this.getFilesDir(), "/chars/" + message + ".ser");
 	        FileInputStream fileIn = new FileInputStream(file);
 	        ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -77,7 +89,6 @@ public class MainTabbedActivity extends FragmentActivity {
 	        in.close();
 	        fileIn.close();
         }catch(IOException i){i.printStackTrace();
-
     	Toast ts = Toast.makeText(this, "IOException loading character", Toast.LENGTH_SHORT);
     	ts.show();}catch(ClassNotFoundException c){c.printStackTrace();}
       
@@ -311,11 +322,17 @@ public class MainTabbedActivity extends FragmentActivity {
         }).show();
     }
     
-    public void changePhoto(View v){
+    public void pictureClicked(View v){
+    	Intent i = new Intent(
+    	Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    	startActivityForResult(i, RESULT_LOAD_IMAGE);
+    }
+    
+    public void changePicture(String pathName){
     	ImageView iv = (ImageView) findViewById(R.id.picture_view);
-    	
-    	Toast t = Toast.makeText(this, "Change your photo\n" + iv.getHeight() + "\n" + iv.getWidth(), Toast.LENGTH_SHORT);
-    	t.show(); 
+    	Bitmap myBitmap = BitmapFactory.decodeFile(pathName);
+    	iv.setImageBitmap(myBitmap);
+    	thisCharacter.setPicturePath(pathName);
     }
     
     public void rollStrength(View v){
@@ -496,17 +513,33 @@ public class MainTabbedActivity extends FragmentActivity {
     }
     
     protected void onActivityResult (int requestCode, int resultCode, Intent data){
-    	if(requestCode == 1337){ //BlueTooth enable request{
-    		
-    		if(resultCode == RESULT_OK){
-    			beginCharacterTransfer();
+    	
+    		if(requestCode == REQUEST_ENABLE_BT){
+    			if(resultCode == RESULT_OK){
+    				beginCharacterTransfer();
+    			}
+    			else{	//They didn't enable BlueTooth. THEY HAVE NO IDEA WHAT THEY'RE MISSING OUT ON
+        			Toast t = Toast.makeText(this, "YOU FOOL!", Toast.LENGTH_SHORT);
+        	    	t.show();
+        		}
     		}
     		
-    		else{	//They didn't enable BlueTooth. THEY HAVE NO IDEA WHAT THEY'RE MISSING OUT ON
-    			Toast t = Toast.makeText(this, "YOU FOOL!", Toast.LENGTH_SHORT);
-    	    	t.show();
-    		}
-    	}
+    		
+    		if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+    	         Uri selectedImage = data.getData();
+    	         String[] filePathColumn = { MediaStore.Images.Media.DATA };
+    	 
+    	         Cursor cursor = getContentResolver().query(selectedImage,
+    	                 filePathColumn, null, null, null);
+    	         cursor.moveToFirst();
+    	 
+    	         int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+    	         String picturePath = cursor.getString(columnIndex);
+    	         cursor.close();
+    	         
+    	         changePicture(picturePath);
+    	                      
+    	     }
     	
     }
     

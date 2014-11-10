@@ -51,9 +51,6 @@ public class SpellsFragment extends Fragment {
         mButton.setOnClickListener(new OnClickListener() {
         	public void onClick(View v){
         		AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-                dialog.setTitle("Set Target Title & Description");
-                dialog.setMessage("Title: ");
-                
             	LinearLayout layout = new LinearLayout(getActivity());
             	layout.setOrientation(LinearLayout.VERTICAL);
 

@@ -617,19 +617,42 @@ public class MainTabbedActivity extends FragmentActivity {
     }
     
     public void rollMain(View v){
-    	Random r = new Random();
-    	int ran = r.nextInt(21 - 1) + 1;
-    	TextView tv = (TextView) findViewById(R.id.main_weapon_damage_value);
-    	Toast t = Toast.makeText(this,  tv.getText() + " + " + ran, Toast.LENGTH_SHORT);
-    	t.show();
+    	Weapon tempWep = thisCharacter.getMainHand();
+    	String tempString = tempWep.getDamage();
+    	String dice = tempString.substring(0, tempString.indexOf("d"));
+    	String val = tempString.substring(tempString.indexOf("d")+1, tempString.length());
+    	int numRolls = Integer.parseInt(dice);
+    	int rollSize = Integer.parseInt(val);
+    	int total = 0;
     	
+    	Random r = new Random();
+    	
+    	for(int i = 0; i < numRolls; i++){
+    		int ran = r.nextInt(rollSize) + 1;
+    		total += ran;
+    	}
+
+    	Toast t = Toast.makeText(this, "" + total, Toast.LENGTH_SHORT);
+    	t.show();
     }
     
     public void rollOff(View v){
+    	Weapon tempWep = thisCharacter.getOffHand();
+    	String tempString = tempWep.getDamage();
+    	String dice = tempString.substring(0, tempString.indexOf("d"));
+    	String val = tempString.substring(tempString.indexOf("d")+1, tempString.length());
+    	int numRolls = Integer.parseInt(dice);
+    	int rollSize = Integer.parseInt(val);
+    	int total = 0;
+    	
     	Random r = new Random();
-    	int ran = r.nextInt(21 - 1) + 1;
-    	TextView tv = (TextView) findViewById(R.id.off_weapon_damage_value);
-    	Toast t = Toast.makeText(this,  tv.getText() + " + " + ran, Toast.LENGTH_SHORT);
+    	
+    	for(int i = 0; i < numRolls; i++){
+    		int ran = r.nextInt(rollSize) + 1;
+    		total += ran;
+    	}
+
+    	Toast t = Toast.makeText(this, "" + total, Toast.LENGTH_SHORT);
     	t.show();
     	
     }

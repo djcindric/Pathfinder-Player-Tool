@@ -75,7 +75,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		ActionBar ab = getActionBar();
 		ab.setTitle("Characters");
 		ab.setSubtitle("Pathfinder Player Tool");
-		
+	
 		//Open the character directory. Create it if it doesn't already exist
 		fileDir = this.getFilesDir();
 		File saveFilesDir = new File(this.getFilesDir(), "/chars/");

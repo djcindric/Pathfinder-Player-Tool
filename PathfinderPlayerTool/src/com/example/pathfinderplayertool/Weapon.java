@@ -15,6 +15,15 @@ public class Weapon implements Serializable{
 	public Weapon(){
 		
 	}
+
+	public Weapon(String name){
+			this.WeaponName = name;
+	}
+	
+	public Weapon(String name, String damage){
+		this.WeaponName = name;
+		this.damage = damage;
+	}
 	
 	public Weapon(String name, ArrayList<String> attributes, String damage){
 		WeaponName = name;

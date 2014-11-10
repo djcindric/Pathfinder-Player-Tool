@@ -35,7 +35,7 @@ public class Character implements Serializable{
 	private String Hair = "";
 	private String Eyes = "";
 	private String Notes = "";
-	private ArrayList<Weapon> Weapons;
+	private ArrayList<Weapon> Weapons = new ArrayList<Weapon>();
 	private ArrayList<Armor> Armors;
 	private ArrayList<Spell> Spells = new ArrayList<Spell>();
 	private ArrayList<Skill> Skills = new ArrayList<Skill>();

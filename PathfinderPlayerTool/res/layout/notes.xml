@@ -11,7 +11,7 @@
         android:layout_height="fill_parent"
         
         android:layout_marginTop="50dp"
-        android:layout_weight="10"
+        android:layout_weight="7"
         android:ems="10"
         android:gravity="top"
         android:inputType="textMultiLine"
@@ -26,7 +26,7 @@
         android:layout_height="50dp"
         android:layout_weight="1"
         android:text="Save"
-        android:background="#191919"
-        android:textColor="#ffff4c" />
+         android:background="@drawable/custom_button"
+        android:textColor="#b30000" />
 
 </LinearLayout>

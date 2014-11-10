@@ -102,7 +102,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		
     	//Populate the listview (Declared in activity_main.xml) with names from the .txt file
 		final ListView listview = (ListView) findViewById(R.id.character_list);
-		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listWithoutID);
+		adapter = new ArrayAdapter<String>(this, R.drawable.custom_textview, listWithoutID);
 	    listview.setAdapter(adapter);
 	    
 	    //Set the listview to load the character that is clicked on
@@ -369,6 +369,7 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 						Character tempChar;
 						tempChar = (Character) in.readObject();
 						in.close();
+						tempChar.setPicturePath("");
 						int ID = CharacterID.generateID(fileDir);
 						File file = new File(fileDir, "/chars/" + tempChar.getName() + "-" + ID + ".ser");
 			            FileOutputStream fileOut = new FileOutputStream(file);

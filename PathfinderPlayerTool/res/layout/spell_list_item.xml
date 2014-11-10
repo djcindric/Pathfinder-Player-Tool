@@ -10,8 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="#191919"
-        android:textColor="#ffff4c"
+        android:textColor="#b30000"
         android:text="-"
+        android:textSize="20sp"
         android:gravity="center"
         android:layout_gravity="center"/>
     
@@ -20,8 +21,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="15"
-        android:textColor="#ffff4c"
-        android:textAppearance="?android:attr/textAppearanceSmall" 
+        android:textColor="#b30000" 
+        android:textSize="20sp"
         android:gravity="center"/>
 
 </LinearLayout>

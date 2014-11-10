@@ -45,11 +45,6 @@
         android:orderInCategory="5" 
         android:showAsAction="never"/>
     <item 
-        android:id="@+id/load_feats" 
-        android:title="@string/load_feats" 
-        android:orderInCategory="6" 
-        android:showAsAction="never"/>
-    <item 
         android:id="@+id/load_notes" 
         android:title="@string/load_notes" 
         android:orderInCategory="7" 

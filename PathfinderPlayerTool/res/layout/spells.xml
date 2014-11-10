@@ -3,13 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4C4C4C"
+    android:background="#323232"
     android:orientation="vertical" >
 
     <ExpandableListView
         android:id="@+id/spellsExpandableList"
         android:groupIndicator="@drawable/group_indicator_selector"
-        android:childDivider="#323232"
+        android:childDivider="#4C4C4C"
+        android:dividerHeight="2dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="12" >
@@ -31,7 +32,7 @@
             android:layout_weight="2"
             android:gravity="left|center"
             android:text="Daily: " 
-            android:textColor="#FFFFFF"/>
+            android:textColor="#ffff4c"/>
 
         <TextView
             android:id="@+id/dailyValue"
@@ -40,7 +41,7 @@
             android:layout_weight="2"
             android:gravity="left|center"
             android:text="@string/place_holder"
-            android:textColor="#FFFFFF" />
+            android:textColor="#ffff4c" />
 
         <Button
             android:id="@+id/incrementDaily"
@@ -48,7 +49,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="incrementDaily"
-            android:textColor="#FFFFFF"
+            android:textColor="#ffff4c"
             android:text="+" />
 
         <Button
@@ -57,7 +58,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="decrementDaily"
-            android:textColor="#FFFFFF"
+            android:textColor="#ffff4c"
             android:text="-" />
 
         <Button
@@ -67,7 +68,7 @@
             android:layout_weight="3"
             android:onClick="resetDaily"
             android:text="Reset"
-            android:textColor="#FFFFFF" />
+            android:textColor="#ffff4c" />
     </LinearLayout>
     <Button
         android:id="@+id/addSpell"
@@ -76,6 +77,6 @@
         android:layout_weight="1"
         android:onClick="addSpell"
         android:text="Add" 
-        android:textColor="#FFFFFF" />
+        android:textColor="#ffff4c" />
 
 </LinearLayout>

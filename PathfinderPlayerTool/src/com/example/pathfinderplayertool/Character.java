@@ -11,27 +11,30 @@ public class Character implements Serializable{
 	private static final long serialVersionUID = -7400878238089045378L;
 	private int ID;
 	private int Level = 1;
-	private int Experience;
-	private int Next;
-	private int Age;
-	private int Height;
-	private int Weight;
-	private int BaseHealth;
-	private int Initiative = 10;
-	private int BaseAttack = 20;
+	private int Experience = 0;
+	private int Next = 0;
+	private int Age = 0;
+	private int Height = 0;
+	private int Weight = 0;
+	private int BaseHealth = 0;
+	private int Touch = 0;
+	private int Initiative = 0;
+	private int BaseAttack = 0;
 	private int dailySpellLimit = 0;
-	private String Name;
-	private String CharClass;
-	private String Race;
-	private String Description;
-	private String Alignment;
-	private String Deity;
-	private String Homeland;
-	private String Size;
-	private String Gender;
-	private String Player;
-	private String Hair;
-	private String Eyes;
+	private int ArmorClass = 0;
+	private String Name = "";
+	private String CharClass = "Unspecified";
+	private String Race = "Human";
+	private String Description = "";
+	private String Alignment = "Neutral";
+	private String Deity = "";
+	private String Homeland = "";
+	private String Size = "";
+	private String Gender = "";
+	private String Player = "";
+	private String Hair = "";
+	private String Eyes = "";
+	private String Notes = "";
 	private ArrayList<Weapon> Weapons;
 	private ArrayList<Armor> Armors;
 	private ArrayList<Spell> Spells = new ArrayList<Spell>();
@@ -373,5 +376,29 @@ public class Character implements Serializable{
 
 	public void setPicturePath(String picturePath) {
 		PicturePath = picturePath;
+	}
+
+	public int getArmorClass() {
+		return ArmorClass;
+	}
+
+	public void setArmorClass(int armorClass) {
+		ArmorClass = armorClass;
+	}
+
+	public int getTouch() {
+		return Touch;
+	}
+
+	public void setTouch(int touch) {
+		Touch = touch;
+	}
+
+	public String getNotes() {
+		return Notes;
+	}
+
+	public void setNotes(String notes) {
+		Notes = notes;
 	}
 }

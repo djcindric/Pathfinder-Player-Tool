@@ -95,7 +95,6 @@ public class SpellsFragment extends Fragment {
 	public void onViewCreated(View v, Bundle b){
     	super.onViewCreated(v,b);
     	expListView = (ExpandableListView) this.getActivity().findViewById(R.id.spellsExpandableList);
-    	
     	expListView.setOnChildClickListener(new OnChildClickListener() {
     		@Override
     		public boolean onChildClick(ExpandableListView parent, View v, final int groupPosition, final int childPosition, long id) {
@@ -137,9 +136,9 @@ public class SpellsFragment extends Fragment {
         width = displayMetrics.widthPixels;
 
         if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-               expListView.setIndicatorBounds(width - GetDipsFromPixel(50), width - GetDipsFromPixel(10));
+               expListView.setIndicatorBounds(width - GetDipsFromPixel(35), width - GetDipsFromPixel(10));
         } else {
-        	expListView.setIndicatorBoundsRelative(width - GetDipsFromPixel(50), width - GetDipsFromPixel(10));
+        	expListView.setIndicatorBoundsRelative(width - GetDipsFromPixel(35), width - GetDipsFromPixel(10));
         }
         expListView.setAdapter(listAdapter);
     	

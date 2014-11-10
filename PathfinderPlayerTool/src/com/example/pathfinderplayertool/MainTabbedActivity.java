@@ -130,9 +130,6 @@ public class MainTabbedActivity extends FragmentActivity {
 		if (id == R.id.load_inventory) {
 			mViewPager.setCurrentItem(MainTabbedPagerAdapter.INVENTORY, true);
 		}
-		if (id == R.id.load_feats) {
-			mViewPager.setCurrentItem(MainTabbedPagerAdapter.FEATS, true);
-		}
 		if (id == R.id.load_spells) {
 			mViewPager.setCurrentItem(MainTabbedPagerAdapter.SPELLBOOK, true);
 		}
@@ -299,6 +296,52 @@ public class MainTabbedActivity extends FragmentActivity {
         }).show();
     }
     
+    public void viewBAB(View v){
+    	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Base Attack Bonus")
+        .setMessage("Enter new base attack value")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                if(!value.toString().equals("")){
+                	int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.setBaseAttack(val1);
+	                TextView tv = (TextView) findViewById(R.id.bab_val);
+	                tv.setText("" + val1);
+                }
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
+    public void viewInit(View v){
+    	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Initiative")
+        .setMessage("Enter new initiative value")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                if(!value.toString().equals("")){
+                	int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.setInitiative(val1);
+	                TextView tv = (TextView) findViewById(R.id.init_val);
+	                tv.setText("" + val1);
+                }
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
     public void viewLevel(View v){
     	final EditText input = new EditText(this);
     	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
@@ -321,6 +364,162 @@ public class MainTabbedActivity extends FragmentActivity {
             }
         }).show();
     }
+    
+    public void viewExperience(View v){
+    	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Experience")
+        .setMessage("Enter current experience")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                if(!value.toString().equals("")){
+	                int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.setExperience(val1);
+	                TextView tv = (TextView) findViewById(R.id.experience_value_text);
+	                tv.setText("" + val1);
+                }
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
+    public void viewNext(View v){
+    	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Level")
+        .setMessage("Enter experience to next level")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                if(!value.toString().equals("")){
+	                int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.setNext(val1);
+	                TextView tv = (TextView) findViewById(R.id.next_value_text);
+	                tv.setText("" + val1);
+                }
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
+    public void viewRace(View v){
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Race")
+        .setMessage("Enter Race")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                if(!value.toString().equals("")){
+	                thisCharacter.setRace(value.toString());
+	                TextView tv = (TextView) findViewById(R.id.race_text);
+	                tv.setText("Race: " + value.toString());
+                }
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
+    public void viewClass(View v){
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Class")
+        .setMessage("Enter Class")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                if(!value.toString().equals("")){
+	                thisCharacter.setCharClass(value.toString());
+	                TextView tv = (TextView) findViewById(R.id.class_text);
+	                tv.setText("Class: " + value.toString());
+                }
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
+    public void viewAlignment(View v){
+    	final EditText input = new EditText(this);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Alignment")
+        .setMessage("Enter Alignment")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                if(!value.toString().equals("")){
+	                thisCharacter.setAlignment(value.toString());
+	                TextView tv = (TextView) findViewById(R.id.alignment_text);
+	                tv.setText("Alignment: " + value.toString());
+                }
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
+    public void viewAC(View v){
+    	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Armor Class")
+        .setMessage("Enter new armor class")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                if(!value.toString().equals("")){
+	                int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.setArmorClass(val1);
+	                TextView tv = (TextView) findViewById(R.id.ac_text);
+	                tv.setText("Armor: " + val1);
+                }
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
+    public void viewHP(View v){
+    	final EditText input = new EditText(this);
+    	input.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
+    	new AlertDialog.Builder(this)
+        .setTitle("Edit Health Points")
+        .setMessage("Enter new health points value")
+        .setView(input)
+        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText(); 
+                if(!value.toString().equals("")){
+	                int val1 = Integer.parseInt(value.toString());
+	                thisCharacter.setBaseHealth(val1);
+	                TextView tv = (TextView) findViewById(R.id.hp_text);
+	                tv.setText("Health: " + val1);
+                }
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        }).show();
+    }
+    
     
     public void pictureClicked(View v){
     	Intent i = new Intent(

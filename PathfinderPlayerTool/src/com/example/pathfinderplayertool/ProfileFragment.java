@@ -26,7 +26,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,
         ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.character_profile, container, false);
+        View rootView = inflater.inflate(R.layout.character_profile_wip, container, false);
         
         tv = (TextView) rootView.findViewById(R.id.str_value_text);
         tv.setText("" + MainTabbedActivity.thisCharacter.getAbilities().getStrength());
@@ -46,8 +46,29 @@ public class ProfileFragment extends Fragment {
         tv = (TextView) rootView.findViewById(R.id.cha_value_text);
         tv.setText("" + MainTabbedActivity.thisCharacter.getAbilities().getCharisma());
         
+        tv = (TextView) rootView.findViewById(R.id.experience_value_text);
+        tv.setText("" + MainTabbedActivity.thisCharacter.getExperience());
+        
+        tv = (TextView) rootView.findViewById(R.id.next_value_text);
+        tv.setText("" + MainTabbedActivity.thisCharacter.getNext());
+        
+        tv = (TextView) rootView.findViewById(R.id.hp_text);
+        tv.setText("Health: " + MainTabbedActivity.thisCharacter.getBaseHealth());
+        
+        tv = (TextView) rootView.findViewById(R.id.ac_text);
+        tv.setText("Armor: " + MainTabbedActivity.thisCharacter.getArmorClass());
+        
         tv = (TextView) rootView.findViewById(R.id.level_text);
         tv.setText("Level: " + MainTabbedActivity.thisCharacter.getLevel());
+        
+        tv = (TextView) rootView.findViewById(R.id.race_text);
+        tv.setText("Race: " + MainTabbedActivity.thisCharacter.getRace());
+        
+        tv = (TextView) rootView.findViewById(R.id.class_text);
+        tv.setText("Class: " + MainTabbedActivity.thisCharacter.getCharClass());
+        
+        tv = (TextView) rootView.findViewById(R.id.alignment_text);
+        tv.setText("Alignment: " + MainTabbedActivity.thisCharacter.getAlignment());
         
         if(!MainTabbedActivity.thisCharacter.getPicturePath().equals("")){
         	ImageView iv = (ImageView) rootView.findViewById(R.id.picture_view);

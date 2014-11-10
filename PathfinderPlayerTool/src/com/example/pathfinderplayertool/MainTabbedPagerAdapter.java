@@ -10,15 +10,14 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
-	int NUMTABS = 7; //The number of tabs in the main view
+	int NUMTABS = 6; //The number of tabs in the main view
 	
 	public static int PROFILE 	= 0; 	
 	public static int COMBAT 	= 1;
 	public static int SKILLS 	= 2;
 	public static int SPELLBOOK = 3;	//Static ints for referencing pages. 
 	public static int INVENTORY = 4;	//Must be updated if page order changes
-	public static int FEATS 	= 5;
-	public static int NOTES 	= 6;//
+	public static int NOTES 	= 5;//
 	
 	public MainTabbedPagerAdapter(FragmentManager fm) {
 		super(fm);
@@ -42,13 +41,10 @@ public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
 				frag = new SpellsFragment(MainTabbedActivity.message);
 				return frag;
 			case 4:
-				frag = new InventoryFragment();
-				return frag;
-			case 5:
-				frag = new FeatsFragment();
+				frag = new InventoryFragment(MainTabbedActivity.message);
 				return frag;
 			default:
-				frag = new NotesFragment();
+				frag = new NotesFragment(MainTabbedActivity.message);
 				return frag;
 		}
 	}
@@ -72,8 +68,6 @@ public class MainTabbedPagerAdapter extends FragmentStatePagerAdapter {
 			case 4:
 				return "Inventory";
 			case 5:
-				return "Feats";
-			case 6:
 				return "Notes";//
 			default:
 				return "Empty Page";

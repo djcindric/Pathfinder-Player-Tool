@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 public class CombatFragment extends Fragment {
 	public String charName = "";
-	public Character thisCharacter = null;
 	public TextView tv = null;
 	
 	public CombatFragment (String s){
@@ -30,43 +29,32 @@ public class CombatFragment extends Fragment {
         ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.combat, container, false);
         
-        try
-        {
-        	File file = new File(MainActivity.fileDir, "/chars/" + charName + ".ser");
-	        FileInputStream fileIn = new FileInputStream(file);
-	        ObjectInputStream in = new ObjectInputStream(fileIn);
-	        thisCharacter = (Character) in.readObject();
-	        in.close();
-	        fileIn.close();
-        }catch(IOException i){i.printStackTrace();}
-        catch(ClassNotFoundException c){c.printStackTrace();}
-        
         tv = (TextView) rootView.findViewById(R.id.bab_val);
-        tv.setText("" + thisCharacter.getBaseAttack());
+        tv.setText("" + MainTabbedActivity.thisCharacter.getBaseAttack());
         
         tv = (TextView) rootView.findViewById(R.id.init_val);
-        tv.setText("" + thisCharacter.getInitiative());
+        tv.setText("" + MainTabbedActivity.thisCharacter.getInitiative());
         
         tv = (TextView) rootView.findViewById(R.id.cmb_val);
-        tv.setText("" + ( (thisCharacter.getAbilities().getStrength() -10)/2));
+        tv.setText("" + ( (MainTabbedActivity.thisCharacter.getAbilities().getStrength() -10)/2));
         
         tv = (TextView) rootView.findViewById(R.id.melee_val);
-        tv.setText("" + ( (thisCharacter.getAbilities().getStrength() -10)/2));
+        tv.setText("" + ( (MainTabbedActivity.thisCharacter.getAbilities().getStrength() -10)/2));
         
         tv = (TextView) rootView.findViewById(R.id.ranged_val);
-        tv.setText("" + ( (thisCharacter.getAbilities().getDexterity() -10)/2));
+        tv.setText("" + ( (MainTabbedActivity.thisCharacter.getAbilities().getDexterity() -10)/2));
         
         tv = (TextView) rootView.findViewById(R.id.main_weapon_name);
-        tv.setText("" + thisCharacter.getMainHand().getName());
+        tv.setText("" + MainTabbedActivity.thisCharacter.getMainHand().getName());
         
         tv = (TextView) rootView.findViewById(R.id.off_weapon_name);
-        tv.setText("" + thisCharacter.getOffHand().getName());
+        tv.setText("" + MainTabbedActivity.thisCharacter.getOffHand().getName());
         
         tv = (TextView) rootView.findViewById(R.id.main_weapon_damage_value);
-        tv.setText("" + thisCharacter.getMainHand().getDamage());
+        tv.setText("" + MainTabbedActivity.thisCharacter.getMainHand().getDamage());
         
         tv = (TextView) rootView.findViewById(R.id.off_weapon_damage_value);
-        tv.setText("" + thisCharacter.getOffHand().getDamage());
+        tv.setText("" + MainTabbedActivity.thisCharacter.getOffHand().getDamage());
         
         return rootView;
     }

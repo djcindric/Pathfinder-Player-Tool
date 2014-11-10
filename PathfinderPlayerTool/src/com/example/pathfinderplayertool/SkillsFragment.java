@@ -90,7 +90,7 @@ public class SkillsFragment extends Fragment implements OnCheckedChangeListener 
     @Override
     public View onCreateView(LayoutInflater inflater,
         ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.skills, container, false);
+        View rootView = inflater.inflate(R.layout.skills_wip, container, false);
 		
         acrobaticsCheck = (CheckBox) rootView.findViewById(R.id.acrobaticsCheckBox);
 		appraiseCheck = (CheckBox) rootView.findViewById(R.id.appraiseCheckBox); 

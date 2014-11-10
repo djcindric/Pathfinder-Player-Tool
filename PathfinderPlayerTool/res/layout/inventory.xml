@@ -18,7 +18,6 @@
 			android:layout_height="match_parent"
 			android:layout_weight="1"
 			android:layout_marginTop="2dp"
-			android:layout_marginLeft="2dp"
 			android:layout_marginRight="2dp"
 			android:clickable="true"
 			android:onClick="viewExperience"
@@ -57,7 +56,6 @@
 			android:layout_weight="1"
 			android:layout_marginTop="2dp"
 			android:layout_marginLeft="2dp"
-			android:layout_marginRight="2dp"
 			android:clickable="true"
 			android:onClick="viewExperience"
 	        android:orientation="vertical" >

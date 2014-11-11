@@ -3,12 +3,12 @@ package com.example.pathfinderplayertool;
 import java.io.Serializable;
 
 public class Abilities implements Serializable{
-	private int strength=10;
-	private int dexterity=10;
-	private int constitution=10;
-	private int intelligence=10;
-	private int wisdom=10;
-	private int charisma=10;
+	private int strength=8;
+	private int dexterity=8;
+	private int constitution=8;
+	private int intelligence=8;
+	private int wisdom=8;
+	private int charisma=8;
 	
 	public Abilities(){
 		

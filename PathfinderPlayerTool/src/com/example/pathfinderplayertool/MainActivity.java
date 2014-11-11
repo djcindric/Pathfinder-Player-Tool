@@ -188,12 +188,12 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 		String temp = "";
 		
 		int level=1;
-		int str = 10;
-		int dex = 10;
-		int con = 10;
-		int intel = 10;
-		int wis = 10;
-		int cha = 10;
+		int str = 8;
+		int dex = 8;
+		int con = 8;
+		int intel = 8;
+		int wis = 8;
+		int cha = 8;
 		
 		et = (EditText)d.getDialog().findViewById(R.id.char_level);
 		temp = et.getText().toString();

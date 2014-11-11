@@ -705,7 +705,7 @@ public class MainTabbedActivity extends FragmentActivity {
     public void transferCharacter(){
     	mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     	if (mBluetoothAdapter == null) {
-    	    // Device does not support Bluetooth. Must be pretty old. Sucks for them!
+    	    // Device does not support Bluetooth
     	}
     	
     	if (!mBluetoothAdapter.isEnabled()) {
@@ -740,8 +740,8 @@ public class MainTabbedActivity extends FragmentActivity {
     			if(resultCode == RESULT_OK){
     				beginCharacterTransfer();
     			}
-    			else{	//They didn't enable BlueTooth. THEY HAVE NO IDEA WHAT THEY'RE MISSING OUT ON
-        			Toast t = Toast.makeText(this, "YOU FOOL!", Toast.LENGTH_SHORT);
+    			else{
+        			Toast t = Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT);
         	    	t.show();
         		}
     		}
@@ -762,7 +762,6 @@ public class MainTabbedActivity extends FragmentActivity {
     	         changePicture(picturePath);
     	                      
     	     }
-    	
     }
     
     public void sendToDevice(final String address){

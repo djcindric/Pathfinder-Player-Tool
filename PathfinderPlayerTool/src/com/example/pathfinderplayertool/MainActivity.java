@@ -369,8 +369,9 @@ public class MainActivity extends Activity  implements NewCharacterDialogFragmen
 						Character tempChar;
 						tempChar = (Character) in.readObject();
 						in.close();
-						tempChar.setPicturePath("");
 						int ID = CharacterID.generateID(fileDir);
+						tempChar.setID(ID);
+						tempChar.setPicturePath("");
 						File file = new File(fileDir, "/chars/" + tempChar.getName() + "-" + ID + ".ser");
 			            FileOutputStream fileOut = new FileOutputStream(file);
 			            ObjectOutputStream out = new ObjectOutputStream(fileOut);
